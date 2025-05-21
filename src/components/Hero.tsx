@@ -49,7 +49,7 @@ const Hero = () => {
               <div className="absolute -bottom-10 -left-10 w-72 h-72 bg-navy-blue/10 rounded-full filter blur-xl"></div>
               <div className="relative z-10 animate-float">
                 <img 
-                  src="/HeroImg.png"
+                  src="/heroImg.png"
                   alt="Dashboard Preview"
                   className="rounded-lg w-full max-w-xl"
                 />
