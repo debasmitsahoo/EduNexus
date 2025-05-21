@@ -1,7 +1,6 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Download } from 'lucide-react';
-import HeroImg from './Images/HeroImg.png';
 
 const Hero = () => {
   const handleDownload = () => {
@@ -50,8 +49,8 @@ const Hero = () => {
               <div className="absolute -bottom-10 -left-10 w-72 h-72 bg-navy-blue/10 rounded-full filter blur-xl"></div>
               <div className="relative z-10 animate-float">
                 <img 
-                  src={HeroImg} 
-                  alt="Dashboard Preview" 
+                  src="/HeroImg.png"
+                  alt="Dashboard Preview"
                   className="rounded-lg w-full max-w-xl"
                 />
                 <div className="absolute bottom-4 right-4 bg-white/80 backdrop-blur-md shadow-xl rounded-xl px-6 py-4 flex flex-col items-start max-w-xs border border-gray-200 animate-fade-in-up">
