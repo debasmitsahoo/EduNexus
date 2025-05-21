@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Download } from 'lucide-react';
+import HeroImg from './Images/HeroImg.png';
 
 const Hero = () => {
   const handleDownload = () => {
@@ -47,12 +48,16 @@ const Hero = () => {
             <div className="relative">
               <div className="absolute -top-8 -right-8 w-64 h-64 bg-deep-yellow/20 rounded-full filter blur-xl"></div>
               <div className="absolute -bottom-10 -left-10 w-72 h-72 bg-navy-blue/10 rounded-full filter blur-xl"></div>
-              <div className="relative z-10 bg-white p-4 rounded-xl shadow-xl animate-float">
+              <div className="relative z-10 animate-float">
                 <img 
-                  src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2520&q=80" 
+                  src={HeroImg} 
                   alt="Dashboard Preview" 
-                  className="rounded-lg w-full max-w-md"
+                  className="rounded-lg w-full max-w-xl"
                 />
+                <div className="absolute bottom-4 right-4 bg-white/80 backdrop-blur-md shadow-xl rounded-xl px-6 py-4 flex flex-col items-start max-w-xs border border-gray-200 animate-fade-in-up">
+                  <span className="text-navy-blue font-bold text-lg mb-1">Feel Education App</span>
+                  <span className="text-gray-700 text-sm">Smart, secure, and seamless school management—anytime, anywhere.</span>
+                </div>
               </div>
             </div>
           </div>
