@@ -14,149 +14,102 @@ const Footer = () => {
 
   return (
     <footer className="bg-navy-blue text-white">
-      <div className="container mx-auto px-4">
-        {/* CTA Section */}
-        <div className="py-16 px-6 md:px-12 border-b border-white/10">
-          <div className="bg-deep-yellow rounded-xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between">
-            <div className="mb-6 md:mb-0 md:mr-8">
-              <h2 className="text-2xl md:text-3xl font-bold text-navy-blue mb-2">Ready to transform your institution?</h2>
-              <p className="text-navy-blue/80">
-                Join hundreds of schools already using EduNexus.
-              </p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button className="bg-navy-blue text-white hover:bg-navy-blue/90" asChild>
-                <a href="/request-demo">
-                  Book a Demo
-                  <ArrowRight className="h-5 w-5 ml-2" />
-                </a>
-              </Button>
-              <Button variant="outline" className="border-navy-blue text-navy-blue hover:bg-navy-blue hover:text-white">
-                Start for Free
-              </Button>
-            </div>
+      {/* Key Highlight Section */}
+      <div className="border-b border-white/10">
+        <div className="container mx-auto px-4 py-6">
+          <div className="bg-white/5 rounded-lg p-6 text-center">
+            <h3 className="text-xl font-semibold mb-2">Key Highlight</h3>
+            <p className="text-gray-300 max-w-3xl mx-auto">
+              This project is the sole creation of Debasmit Sahoo. It is not affiliated with any organization or entity named "EduNexus" - the name was suggested by ChatGPT and is used for demonstration purposes only.
+            </p>
           </div>
         </div>
-        
-        {/* Main Footer */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 py-12">
-          <div>
-            <div className="flex items-center mb-4">
+      </div>
+
+      <div className="container mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Brand Section */}
+          <div className="space-y-4">
+            <div className="flex items-center">
               <GraduationCap className="h-8 w-8 text-deep-yellow mr-2" />
               <span className="font-bold text-xl">EduNexus</span>
             </div>
-            <p className="text-gray-300 mb-6">
-              Smart ERP platform for schools and educational institutions.
+            <p className="text-gray-400">
+              Transforming education management through innovative technology solutions.
             </p>
-            <div className="space-y-3">
-              <div className="flex items-start">
-                <Mail className="h-5 w-5 text-deep-yellow mr-2 mt-0.5" />
-                <span>contact@edunexus.com</span>
-              </div>
-              <div className="flex items-start">
-                <Phone className="h-5 w-5 text-deep-yellow mr-2 mt-0.5" />
-                <span>+91 1234-567-890</span>
-              </div>
-              <div className="flex items-start">
-                <MapPin className="h-5 w-5 text-deep-yellow mr-2 mt-0.5" />
-                <span>Bhubaneswar, India</span>
-              </div>
-            </div>
-            {/* Social Links */}
-            <div className="flex items-center space-x-4 mt-6">
-              {socialLinks.map(({ icon: Icon, href, label }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white hover:text-deep-yellow transition-colors"
-                  aria-label={label}
-                >
-                  <Icon className="h-5 w-5" />
-                </a>
-              ))}
+            <div className="flex space-x-4">
+              <a href="#" className="text-gray-400 hover:text-deep-yellow transition-colors">
+                <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+              </a>
+              <a href="#" className="text-gray-400 hover:text-deep-yellow transition-colors">
+                <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                </svg>
+              </a>
+              <a href="#" className="text-gray-400 hover:text-deep-yellow transition-colors">
+                <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+              </a>
             </div>
           </div>
-          
+
+          {/* Quick Links */}
           <div>
-            <h3 className="font-bold text-lg mb-4">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              <li>
-                <a href="/#features" className="text-gray-300 hover:text-deep-yellow transition-colors">Features</a>
-              </li>
-              <li>
-                <a href="/#benefits" className="text-gray-300 hover:text-deep-yellow transition-colors">Benefits</a>
-              </li>
-              <li>
-                <a href="/#how-it-works" className="text-gray-300 hover:text-deep-yellow transition-colors">How It Works</a>
-              </li>
-              <li>
-                <a href="/#pricing" className="text-gray-300 hover:text-deep-yellow transition-colors">Pricing</a>
-              </li>
-              <li>
-                <a href="/#about" className="text-gray-300 hover:text-deep-yellow transition-colors">About Us</a>
-              </li>
-              <li>
-                <a href="/contact" className="text-gray-300 hover:text-deep-yellow transition-colors">Contact</a>
-              </li>
+              <li><a href="#features" className="text-gray-400 hover:text-deep-yellow transition-colors">Features</a></li>
+              <li><a href="#benefits" className="text-gray-400 hover:text-deep-yellow transition-colors">Benefits</a></li>
+              <li><a href="#how-it-works" className="text-gray-400 hover:text-deep-yellow transition-colors">How It Works</a></li>
+              <li><a href="#testimonials" className="text-gray-400 hover:text-deep-yellow transition-colors">Testimonials</a></li>
+              <li><a href="#pricing" className="text-gray-400 hover:text-deep-yellow transition-colors">Pricing</a></li>
             </ul>
           </div>
-          
+
+          {/* Solutions */}
           <div>
-            <h3 className="font-bold text-lg mb-4">Solutions</h3>
+            <h3 className="text-lg font-semibold mb-4">Solutions</h3>
             <ul className="space-y-2">
-              <li>
-                <a href="/solutions/k12-schools" className="text-gray-300 hover:text-deep-yellow transition-colors">K-12 Schools</a>
-              </li>
-              <li>
-                <a href="/solutions/higher-education" className="text-gray-300 hover:text-deep-yellow transition-colors">Higher Education</a>
-              </li>
-              <li>
-                <a href="/solutions/coaching-centers" className="text-gray-300 hover:text-deep-yellow transition-colors">Coaching Centers</a>
-              </li>
-              <li>
-                <a href="/solutions/vocational-institutes" className="text-gray-300 hover:text-deep-yellow transition-colors">Vocational Institutes</a>
-              </li>
-              <li>
-                <a href="/solutions/language-schools" className="text-gray-300 hover:text-deep-yellow transition-colors">Language Schools</a>
-              </li>
-              <li>
-                <a href="/solutions/international-schools" className="text-gray-300 hover:text-deep-yellow transition-colors">International Schools</a>
-              </li>
+              <li><a href="/solutions/k12-schools" className="text-gray-400 hover:text-deep-yellow transition-colors">K-12 Schools</a></li>
+              <li><a href="/solutions/higher-education" className="text-gray-400 hover:text-deep-yellow transition-colors">Higher Education</a></li>
+              <li><a href="/solutions/coaching-centers" className="text-gray-400 hover:text-deep-yellow transition-colors">Coaching Centers</a></li>
+              <li><a href="/solutions/vocational-institutes" className="text-gray-400 hover:text-deep-yellow transition-colors">Vocational Institutes</a></li>
+              <li><a href="/solutions/language-schools" className="text-gray-400 hover:text-deep-yellow transition-colors">Language Schools</a></li>
             </ul>
           </div>
-          
+
+          {/* Contact Info */}
           <div>
-            <h3 className="font-bold text-lg mb-4">Stay Updated</h3>
-            <p className="text-gray-300 mb-4">
-              Subscribe to our newsletter for the latest updates and features.
-            </p>
-            <form action="https://formspree.io/f/your-form-id" method="POST" className="flex">
-              <Input 
-                type="email" 
-                name="email"
-                placeholder="Your email" 
-                className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 rounded-l-md rounded-r-none focus-visible:ring-deep-yellow"
-                required
-              />
-              <Button type="submit" className="bg-deep-yellow text-navy-blue hover:bg-yellow-600 rounded-l-none">
-                Subscribe
-              </Button>
-            </form>
+            <h3 className="text-lg font-semibold mb-4">Contact</h3>
+            <ul className="space-y-4">
+              <li className="flex items-start">
+                <Mail className="h-5 w-5 text-deep-yellow mr-3 mt-1" />
+                <span className="text-gray-400">debasmitfordev@gmail.com</span>
+              </li>
+              <li className="flex items-start">
+                <MapPin className="h-5 w-5 text-deep-yellow mr-3 mt-1" />
+                <span className="text-gray-400">Bhubaneswar, Odisha, India</span>
+              </li>
+            </ul>
           </div>
         </div>
-        
-        {/* Copyright */}
-        <div className="py-6 px-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
-          <div className="flex flex-col items-center md:items-start">
-            <div>© {new Date().getFullYear()} EduNexus. All rights reserved.</div>
-            <div className="mt-2 text-deep-yellow">Built with ❤️ by Debasmit</div>
-          </div>
-          <div className="flex mt-4 md:mt-0">
-            <a href="/privacy-policy" className="mr-4 hover:text-deep-yellow">Privacy Policy</a>
-            <a href="/terms-of-service" className="mr-4 hover:text-deep-yellow">Terms of Service</a>
-            <a href="/cookie-policy" className="hover:text-deep-yellow">Cookie Policy</a>
+
+        {/* Bottom Bar */}
+        <div className="border-t border-white/10 mt-12 pt-8">
+          <div className="flex flex-col items-center space-y-4">
+            <p className="text-gray-400 text-sm">
+              © {new Date().getFullYear()} Debasmit Sahoo. All rights reserved.
+            </p>
+            <p className="text-deep-yellow text-sm font-medium">
+              Built and Crafted with ❤️ by Debasmit Sahoo
+            </p>
+            <div className="flex space-x-6">
+              <a href="/privacy-policy" className="text-gray-400 hover:text-deep-yellow transition-colors text-sm">Privacy Policy</a>
+              <a href="/terms-of-service" className="text-gray-400 hover:text-deep-yellow transition-colors text-sm">Terms of Service</a>
+              <a href="/cookie-policy" className="text-gray-400 hover:text-deep-yellow transition-colors text-sm">Cookie Policy</a>
+            </div>
           </div>
         </div>
       </div>
