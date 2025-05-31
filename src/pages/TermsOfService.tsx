@@ -20,7 +20,14 @@ const TermsOfService = () => {
               </section>
 
               <section className="mb-8">
-                <h2 className="text-2xl font-semibold text-navy-blue mb-4">2. Use of Services</h2>
+                <h2 className="text-2xl font-semibold text-navy-blue mb-4">2. Project Ownership</h2>
+                <p className="text-gray-600 mb-4">
+                  EduNexus is the sole creation of Debasmit Sahoo. All rights, including but not limited to intellectual property rights, copyrights, trademarks, and any other proprietary rights associated with the project, are exclusively owned by Debasmit Sahoo.
+                </p>
+              </section>
+
+              <section className="mb-8">
+                <h2 className="text-2xl font-semibold text-navy-blue mb-4">3. Use of Services</h2>
                 <p className="text-gray-600 mb-4">
                   Our services are designed for educational institutions and their authorized users. You agree to:
                 </p>
@@ -33,7 +40,7 @@ const TermsOfService = () => {
               </section>
 
               <section className="mb-8">
-                <h2 className="text-2xl font-semibold text-navy-blue mb-4">3. Subscription and Payments</h2>
+                <h2 className="text-2xl font-semibold text-navy-blue mb-4">4. Subscription and Payments</h2>
                 <p className="text-gray-600 mb-4">
                   Subscription terms and payment conditions:
                 </p>
@@ -46,27 +53,27 @@ const TermsOfService = () => {
               </section>
 
               <section className="mb-8">
-                <h2 className="text-2xl font-semibold text-navy-blue mb-4">4. Intellectual Property</h2>
+                <h2 className="text-2xl font-semibold text-navy-blue mb-4">5. Intellectual Property</h2>
                 <p className="text-gray-600 mb-4">
-                  All content, features, and functionality of our services are owned by EduNexus and are protected by international copyright, trademark, and other intellectual property laws.
+                  All content, features, and functionality of our services are owned by Debasmit Sahoo and are protected by international copyright, trademark, and other intellectual property laws. Any unauthorized use, reproduction, or distribution of the project or its components is strictly prohibited.
                 </p>
               </section>
 
               <section className="mb-8">
-                <h2 className="text-2xl font-semibold text-navy-blue mb-4">5. Limitation of Liability</h2>
+                <h2 className="text-2xl font-semibold text-navy-blue mb-4">6. Limitation of Liability</h2>
                 <p className="text-gray-600 mb-4">
                   EduNexus shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of or inability to use the service.
                 </p>
               </section>
 
               <section className="mb-8">
-                <h2 className="text-2xl font-semibold text-navy-blue mb-4">6. Contact Information</h2>
+                <h2 className="text-2xl font-semibold text-navy-blue mb-4">7. Contact Information</h2>
                 <p className="text-gray-600 mb-4">
-                  For any questions regarding these Terms of Service, please contact us at:
+                  For any questions regarding these Terms of Service, please contact:
                 </p>
                 <p className="text-gray-600">
-                  Email: legal@feeleducation.com<br />
-                  Phone: +91 1234-567-890
+                  Email: debasmitfordev@gmail.com<br />
+                  Creator: Debasmit Sahoo
                 </p>
               </section>
             </div>
