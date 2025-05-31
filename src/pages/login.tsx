@@ -1,56 +1,37 @@
 import React, { useState } from 'react';
-import { ArrowLeft, GraduationCap, User, Users, School } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { ArrowLeft, Eye, EyeOff } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
-type UserType = 'admin' | 'teacher' | 'student' | 'parent';
-
 const Login = () => {
-  const [selectedType, setSelectedType] = useState<UserType | null>(null);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+    rememberMe: false
+  });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle login logic here
-    console.log('Login attempt:', { userType: selectedType, email, password });
+    console.log('Login attempt with:', formData);
   };
 
-  const userTypes = [
-    {
-      type: 'admin' as UserType,
-      icon: GraduationCap,
-      label: 'Admin',
-      description: 'Institution administrators and management'
-    },
-    {
-      type: 'teacher' as UserType,
-      icon: User,
-      label: 'Teacher',
-      description: 'Faculty and teaching staff'
-    },
-    {
-      type: 'student' as UserType,
-      icon: Users,
-      label: 'Student',
-      description: 'Current students'
-    },
-    {
-      type: 'parent' as UserType,
-      icon: School,
-      label: 'Parent',
-      description: 'Parents and guardians'
-    }
-  ];
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value, type, checked } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value
+    }));
+  };
 
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      
-      <main className="flex-grow pt-24">
-        <div className="container mx-auto px-4 py-12">
+      <main className="flex-grow pt-24 pb-16">
+        <div className="container mx-auto px-4">
           <Button 
             variant="ghost" 
             className="mb-8 text-navy-blue hover:text-deep-yellow"
@@ -60,56 +41,25 @@ const Login = () => {
             Back
           </Button>
 
-          <div className="max-w-2xl mx-auto">
-            <div className="text-center mb-12">
-              <h1 className="text-4xl font-bold text-navy-blue mb-4">Welcome Back</h1>
-              <p className="text-lg text-gray-600">
-                Please select your role and sign in to your account
-              </p>
+          <div className="max-w-md mx-auto">
+            <div className="text-center mb-8">
+              <h1 className="text-3xl font-bold text-navy-blue mb-2">Welcome Back</h1>
+              <p className="text-gray-600">Sign in to access your EduNexus dashboard</p>
             </div>
 
-            {!selectedType ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {userTypes.map(({ type, icon: Icon, label, description }) => (
-                  <button
-                    key={type}
-                    onClick={() => setSelectedType(type)}
-                    className="flex flex-col items-center p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-all border-2 border-transparent hover:border-deep-yellow"
-                  >
-                    <div className="bg-navy-blue/10 rounded-full p-4 mb-4">
-                      <Icon className="h-8 w-8 text-deep-yellow" />
-                    </div>
-                    <h3 className="text-xl font-semibold text-navy-blue mb-2">{label}</h3>
-                    <p className="text-gray-600 text-center">{description}</p>
-                  </button>
-                ))}
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-6 bg-white p-8 rounded-xl shadow-md">
-                <div className="flex items-center justify-between mb-6">
-                  <h2 className="text-2xl font-bold text-navy-blue">
-                    {userTypes.find(t => t.type === selectedType)?.label} Login
-                  </h2>
-                  <Button
-                    type="button"
-                    variant="ghost"
-                    className="text-gray-500 hover:text-navy-blue"
-                    onClick={() => setSelectedType(null)}
-                  >
-                    Change Role
-                  </Button>
-                </div>
-
+            <div className="bg-white rounded-xl shadow-lg p-8">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                     Email Address
                   </label>
                   <Input
                     id="email"
+                    name="email"
                     type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
                     required
+                    value={formData.email}
+                    onChange={handleChange}
                     className="w-full"
                     placeholder="Enter your email"
                   />
@@ -119,29 +69,46 @@ const Login = () => {
                   <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
                     Password
                   </label>
-                  <Input
-                    id="password"
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                    className="w-full"
-                    placeholder="Enter your password"
-                  />
+                  <div className="relative">
+                    <Input
+                      id="password"
+                      name="password"
+                      type={showPassword ? "text" : "password"}
+                      required
+                      value={formData.password}
+                      onChange={handleChange}
+                      className="w-full pr-10"
+                      placeholder="Enter your password"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword(!showPassword)}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                    >
+                      {showPassword ? (
+                        <EyeOff className="h-5 w-5" />
+                      ) : (
+                        <Eye className="h-5 w-5" />
+                      )}
+                    </button>
+                  </div>
                 </div>
 
                 <div className="flex items-center justify-between">
                   <div className="flex items-center">
                     <input
-                      id="remember"
+                      id="rememberMe"
+                      name="rememberMe"
                       type="checkbox"
+                      checked={formData.rememberMe}
+                      onChange={handleChange}
                       className="h-4 w-4 text-deep-yellow focus:ring-deep-yellow border-gray-300 rounded"
                     />
-                    <label htmlFor="remember" className="ml-2 block text-sm text-gray-700">
+                    <label htmlFor="rememberMe" className="ml-2 block text-sm text-gray-700">
                       Remember me
                     </label>
                   </div>
-                  <a href="#" className="text-sm text-deep-yellow hover:text-yellow-600">
+                  <a href="/forgot-password" className="text-sm text-deep-yellow hover:text-yellow-600">
                     Forgot password?
                   </a>
                 </div>
@@ -150,11 +117,19 @@ const Login = () => {
                   Sign In
                 </Button>
               </form>
-            )}
+
+              <div className="mt-6 text-center">
+                <p className="text-sm text-gray-600">
+                  Don't have an account?{' '}
+                  <a href="/register" className="text-deep-yellow hover:text-yellow-600 font-medium">
+                    Create one now
+                  </a>
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </main>
-
       <Footer />
     </div>
   );

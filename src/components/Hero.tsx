@@ -8,7 +8,7 @@ const Hero = () => {
     const pdfUrl = '/features-brochure.pdf';
     const link = document.createElement('a');
     link.href = pdfUrl;
-    link.download = 'Feel-Education-Features.pdf';
+    link.download = 'EduNexus-Features.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -24,7 +24,7 @@ const Hero = () => {
               <span className="block">Transform <span className="text-deep-yellow">Your Institution.</span></span>
             </h1>
             <p className="text-lg md:text-xl text-gray-600 mb-8">
-              Feel Education is a smart ERP designed to simplify academic and administrative operations.
+              EduNexus is a smart ERP designed to simplify academic and administrative operations.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button className="primary-btn text-lg" asChild>
@@ -49,14 +49,10 @@ const Hero = () => {
               <div className="absolute -bottom-10 -left-10 w-72 h-72 bg-navy-blue/10 rounded-full filter blur-xl"></div>
               <div className="relative z-10 animate-float">
                 <img 
-                  src="/heroImg.png"
-                  alt="Dashboard Preview"
-                  className="rounded-lg w-full max-w-xl"
+                  src="/hero-illustration.svg"
+                  alt="Education Technology Illustration"
+                  className="w-full max-w-xl"
                 />
-                <div className="absolute bottom-4 right-4 bg-white/80 backdrop-blur-md shadow-xl rounded-xl px-6 py-4 flex flex-col items-start max-w-xs border border-gray-200 animate-fade-in-up">
-                  <span className="text-navy-blue font-bold text-lg mb-1">Feel Education App</span>
-                  <span className="text-gray-700 text-sm">Smart, secure, and seamless school management—anytime, anywhere.</span>
-                </div>
               </div>
             </div>
           </div>

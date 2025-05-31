@@ -1,19 +1,27 @@
 import React from 'react';
-import { GraduationCap, Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
+import { GraduationCap, Mail, Phone, MapPin, ArrowRight, Facebook, Twitter, Instagram, Linkedin, Youtube } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
 const Footer = () => {
+  const socialLinks = [
+    { icon: Facebook, href: 'https://facebook.com/edunexus', label: 'Facebook' },
+    { icon: Twitter, href: 'https://twitter.com/edunexus', label: 'Twitter' },
+    { icon: Instagram, href: 'https://instagram.com/edunexus', label: 'Instagram' },
+    { icon: Linkedin, href: 'https://linkedin.com/company/edunexus', label: 'LinkedIn' },
+    { icon: Youtube, href: 'https://youtube.com/edunexus', label: 'YouTube' }
+  ];
+
   return (
     <footer className="bg-navy-blue text-white">
-      <div className="container mx-auto">
+      <div className="container mx-auto px-4">
         {/* CTA Section */}
         <div className="py-16 px-6 md:px-12 border-b border-white/10">
           <div className="bg-deep-yellow rounded-xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between">
             <div className="mb-6 md:mb-0 md:mr-8">
               <h2 className="text-2xl md:text-3xl font-bold text-navy-blue mb-2">Ready to transform your institution?</h2>
               <p className="text-navy-blue/80">
-                Join hundreds of schools already using Feel Education.
+                Join hundreds of schools already using EduNexus.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
@@ -31,11 +39,11 @@ const Footer = () => {
         </div>
         
         {/* Main Footer */}
-        <div className="py-12 px-6 md:py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 py-12">
           <div>
             <div className="flex items-center mb-4">
               <GraduationCap className="h-8 w-8 text-deep-yellow mr-2" />
-              <span className="font-bold text-xl">Feel Education</span>
+              <span className="font-bold text-xl">EduNexus</span>
             </div>
             <p className="text-gray-300 mb-6">
               Smart ERP platform for schools and educational institutions.
@@ -43,7 +51,7 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-start">
                 <Mail className="h-5 w-5 text-deep-yellow mr-2 mt-0.5" />
-                <span>contact@feeleducation.com</span>
+                <span>contact@edunexus.com</span>
               </div>
               <div className="flex items-start">
                 <Phone className="h-5 w-5 text-deep-yellow mr-2 mt-0.5" />
@@ -53,6 +61,21 @@ const Footer = () => {
                 <MapPin className="h-5 w-5 text-deep-yellow mr-2 mt-0.5" />
                 <span>Bhubaneswar, India</span>
               </div>
+            </div>
+            {/* Social Links */}
+            <div className="flex items-center space-x-4 mt-6">
+              {socialLinks.map(({ icon: Icon, href, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-deep-yellow transition-colors"
+                  aria-label={label}
+                >
+                  <Icon className="h-5 w-5" />
+                </a>
+              ))}
             </div>
           </div>
           
@@ -127,7 +150,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="py-6 px-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
           <div className="flex flex-col items-center md:items-start">
-            <div>© {new Date().getFullYear()} Feel Education. All rights reserved.</div>
+            <div>© {new Date().getFullYear()} EduNexus. All rights reserved.</div>
             <div className="mt-2 text-deep-yellow">Built with ❤️ by Debasmit</div>
           </div>
           <div className="flex mt-4 md:mt-0">

@@ -15,7 +15,7 @@ const TermsOfService = () => {
               <section className="mb-8">
                 <h2 className="text-2xl font-semibold text-navy-blue mb-4">1. Acceptance of Terms</h2>
                 <p className="text-gray-600 mb-4">
-                  By accessing and using Feel Education's services, you agree to be bound by these Terms of Service and all applicable laws and regulations.
+                  By accessing and using EduNexus's services, you agree to be bound by these Terms of Service and all applicable laws and regulations.
                 </p>
               </section>
 
@@ -48,14 +48,14 @@ const TermsOfService = () => {
               <section className="mb-8">
                 <h2 className="text-2xl font-semibold text-navy-blue mb-4">4. Intellectual Property</h2>
                 <p className="text-gray-600 mb-4">
-                  All content, features, and functionality of our services are owned by Feel Education and are protected by international copyright, trademark, and other intellectual property laws.
+                  All content, features, and functionality of our services are owned by EduNexus and are protected by international copyright, trademark, and other intellectual property laws.
                 </p>
               </section>
 
               <section className="mb-8">
                 <h2 className="text-2xl font-semibold text-navy-blue mb-4">5. Limitation of Liability</h2>
                 <p className="text-gray-600 mb-4">
-                  Feel Education shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of or inability to use the service.
+                  EduNexus shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of or inability to use the service.
                 </p>
               </section>
 

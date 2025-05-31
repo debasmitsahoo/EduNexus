@@ -1,4 +1,4 @@
-# Feel Education Web
+# EduNexus Web
 
 ## Project Overview
 
