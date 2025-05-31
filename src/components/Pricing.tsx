@@ -98,7 +98,7 @@ const Pricing = () => {
       yearlyPrice: 153588,
       features: [
         "Everything in Free",
-        "Fee Automation with Autopay",
+        "Fee Management System",
         "Teacher & Staff Dashboard",
         "Advanced Reporting",
         "Priority Support",

@@ -21,7 +21,7 @@ const StandardPlan = () => {
         "Priority feature access"
       ],
       "Fee Automation": [
-        "Automated fee collection",
+        "Manual fee collection system",
         "Multiple payment methods",
         "Payment reminders",
         "Receipt generation",

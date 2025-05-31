@@ -14,16 +14,16 @@ const USP = () => {
               </span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-navy-blue mb-6">
-              Built-In Autopay Setup for School Fees
+              Comprehensive Fee Management System
             </h2>
             <p className="text-lg text-gray-600 mb-8">
-              No more late payments. Let automation handle it. Our intelligent fee management system makes collecting payments easier than ever before.
+              Streamline your fee collection process with our robust fee management system. Make fee collection and tracking easier than ever before.
             </p>
             <div className="space-y-4 mb-8">
               {[
-                'Set up recurring payment schedules',
-                'Automatic reminders for upcoming payments',
-                'Flexible payment options for parents',
+                'Flexible payment scheduling',
+                'Automated payment reminders',
+                'Multiple payment options',
                 'Real-time payment tracking and reporting'
               ].map((item, index) => (
                 <div key={index} className="flex items-start">
@@ -33,7 +33,7 @@ const USP = () => {
               ))}
             </div>
             <Button className="primary-btn" asChild>
-              <a href="/autopay-features">Learn More</a>
+              <a href="/request-demo">Learn More</a>
             </Button>
           </div>
           
@@ -43,12 +43,12 @@ const USP = () => {
               <div className="relative bg-white p-6 rounded-xl shadow-lg">
                 <img 
                   src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80" 
-                  alt="Autopay Setup" 
+                  alt="Fee Management System" 
                   className="rounded-lg shadow-sm"
                 />
                 <div className="absolute -bottom-6 -right-6 bg-deep-yellow p-4 rounded-lg shadow-lg">
-                  <div className="text-navy-blue text-lg font-bold">Collect Fees</div>
-                  <div className="text-navy-blue/80 text-sm">98% on-time payments</div>
+                  <div className="text-navy-blue text-lg font-bold">Manage Fees</div>
+                  <div className="text-navy-blue/80 text-sm">Efficient tracking</div>
                 </div>
               </div>
             </div>

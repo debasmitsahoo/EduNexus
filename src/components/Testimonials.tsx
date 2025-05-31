@@ -1,115 +1,129 @@
+import React from 'react';
+import { Star, Quote } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
-import React, { useState } from 'react';
-import { ArrowRight, ArrowLeft, Quote } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-
-interface Testimonial {
-  id: number;
-  content: string;
-  author: string;
-  position: string;
-  institution: string;
-  location: string;
-}
+const TestimonialCard = ({ 
+  quote, 
+  author, 
+  role, 
+  school, 
+  rating,
+  image
+}: { 
+  quote: string; 
+  author: string; 
+  role: string; 
+  school: string;
+  rating: number;
+  image: string;
+}) => {
+  return (
+    <div className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+      <div className="flex items-start gap-4 mb-6">
+        <div className="relative">
+          <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-deep-yellow">
+            <img 
+              src={image} 
+              alt={author} 
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="absolute -bottom-2 -right-2 bg-deep-yellow rounded-full p-1">
+            <Quote className="h-4 w-4 text-navy-blue" />
+          </div>
+        </div>
+        <div>
+          <h3 className="text-lg font-semibold text-navy-blue">{author}</h3>
+          <p className="text-sm text-gray-600">{role}</p>
+          <p className="text-sm text-deep-yellow font-medium">{school}</p>
+        </div>
+      </div>
+      
+      <div className="flex gap-1 mb-4">
+        {[...Array(5)].map((_, i) => (
+          <Star
+            key={i}
+            className={cn(
+              "h-5 w-5",
+              i < rating ? "text-deep-yellow fill-deep-yellow" : "text-gray-200"
+            )}
+          />
+        ))}
+      </div>
+      
+      <p className="text-gray-600 italic">"{quote}"</p>
+    </div>
+  );
+};
 
 const Testimonials = () => {
-  const testimonials: Testimonial[] = [
+  const testimonials = [
     {
-      id: 1,
-      content: "Feel Education has completely transformed how we manage our administrative tasks. The autopay feature alone has increased our on-time fee collection by 87%.",
-      author: "Dr. Rajesh Kumar",
-      position: "Principal",
-      institution: "ABC Academy",
-      location: "Bhubaneswar"
+      quote: "EduNexus has transformed how we manage our school. The fee management system is intuitive and the reporting features are exactly what we needed.",
+      author: "Dr. Sarah Johnson",
+      role: "Principal",
+      school: "St. Mary's International School",
+      rating: 5,
+      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=256&q=80"
     },
     {
-      id: 2,
-      content: "The academic management module has made curriculum planning and progress tracking so much easier. Our teachers can now focus more on teaching rather than paperwork.",
-      author: "Prof. Meera Patel",
-      position: "Vice Principal",
-      institution: "Sunrise School",
-      location: "Delhi"
+      quote: "The student management features are comprehensive and easy to use. It's made our administrative tasks much more efficient.",
+      author: "Michael Chen",
+      role: "Administrative Director",
+      school: "Global Academy",
+      rating: 5,
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=256&q=80"
     },
     {
-      id: 3,
-      content: "We've been using Feel Education for over a year now, and it's been a game-changer for our institution. The support team is also incredibly responsive.",
-      author: "Arjun Sharma",
-      position: "Administrative Director",
-      institution: "Knowledge Academy",
-      location: "Mumbai"
+      quote: "As a teacher, I love how easy it is to track student progress and communicate with parents. The interface is clean and user-friendly.",
+      author: "Priya Sharma",
+      role: "Senior Teacher",
+      school: "Delhi Public School",
+      rating: 5,
+      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=256&q=80"
     }
   ];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const nextTestimonial = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-  };
-
-  const prevTestimonial = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
-  };
-
   return (
-    <section id="testimonials" className="section-padding bg-navy-blue text-white">
+    <section id="testimonials" className="section-padding bg-gradient-to-br from-gray-50 to-white">
       <div className="container mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">What Our Clients Say</h2>
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            Trusted by educational institutions across the country.
+          <span className="bg-deep-yellow/20 text-navy-blue font-semibold px-4 py-1 rounded-full text-sm mb-4 inline-block">
+            TESTIMONIALS
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold text-navy-blue mb-4">
+            What Our Users Say
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Join hundreds of educational institutions that trust EduNexus for their management needs.
           </p>
         </div>
         
-        <div className="max-w-4xl mx-auto">
-          <div className="relative bg-white/10 backdrop-blur-sm rounded-xl p-8 md:p-10">
-            <Quote className="absolute top-6 left-6 h-12 w-12 text-deep-yellow/30" />
-            
-            <div key={testimonials[currentIndex].id} className="mt-8 animate-fade-in">
-              <p className="text-xl italic mb-6">
-                "{testimonials[currentIndex].content}"
-              </p>
-              <div className="flex items-center justify-between">
-                <div>
-                  <h4 className="font-bold text-deep-yellow">
-                    {testimonials[currentIndex].author}
-                  </h4>
-                  <p className="text-gray-300">
-                    {testimonials[currentIndex].position}, {testimonials[currentIndex].institution}, {testimonials[currentIndex].location}
-                  </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {testimonials.map((testimonial, index) => (
+            <TestimonialCard 
+              key={index}
+              {...testimonial}
+            />
+          ))}
+        </div>
+
+        <div className="mt-16 text-center">
+          <div className="inline-flex items-center gap-2 bg-white rounded-full px-6 py-3 shadow-md">
+            <div className="flex -space-x-2">
+              {testimonials.map((_, index) => (
+                <div key={index} className="w-8 h-8 rounded-full border-2 border-white overflow-hidden">
+                  <img 
+                    src={testimonials[index].image} 
+                    alt={`User ${index + 1}`}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-                <div className="flex space-x-2">
-                  <Button 
-                    variant="outline" 
-                    size="icon"
-                    className="border-gray-500 text-gray-300 hover:bg-deep-yellow hover:text-navy-blue"
-                    onClick={prevTestimonial}
-                  >
-                    <ArrowLeft className="h-5 w-5" />
-                  </Button>
-                  <Button 
-                    variant="outline" 
-                    size="icon"
-                    className="border-gray-500 text-gray-300 hover:bg-deep-yellow hover:text-navy-blue"
-                    onClick={nextTestimonial}
-                  >
-                    <ArrowRight className="h-5 w-5" />
-                  </Button>
-                </div>
-              </div>
+              ))}
             </div>
-          </div>
-          
-          <div className="flex justify-center mt-8 space-x-2">
-            {testimonials.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setCurrentIndex(idx)}
-                className={`h-2 rounded-full transition-all ${
-                  idx === currentIndex ? "w-8 bg-deep-yellow" : "w-2 bg-gray-400"
-                }`}
-                aria-label={`View testimonial ${idx + 1}`}
-              />
-            ))}
+            <span className="text-sm text-gray-600 ml-2">
+              Join <span className="font-semibold text-navy-blue">500+</span> satisfied institutions
+            </span>
           </div>
         </div>
       </div>

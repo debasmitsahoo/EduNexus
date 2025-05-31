@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { GraduationCap, Users, BookOpen, FileText } from 'lucide-react';
 
@@ -28,8 +27,8 @@ const Features = () => {
     },
     {
       icon: FileText,
-      title: 'Fees Automation with Autopay',
-      description: 'Automated billing, reminders, and recurring payment options for hassle-free fee collection.'
+      title: 'Fee Management',
+      description: 'Comprehensive fee collection, tracking, and reporting system for efficient financial management.'
     },
     {
       icon: BookOpen,

@@ -48,7 +48,8 @@ const TermsOfService = () => {
                   <li>Subscriptions are billed in advance</li>
                   <li>Payments are non-refundable</li>
                   <li>Prices may be updated with notice</li>
-                  <li>Automatic renewal unless cancelled</li>
+                  <li>Manual renewal required at the end of subscription period</li>
+                  <li>Payment methods accepted: Credit/Debit cards, Bank transfers</li>
                 </ul>
               </section>
 

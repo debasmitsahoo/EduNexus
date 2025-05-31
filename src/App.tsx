@@ -20,7 +20,6 @@ import LanguageSchools from "./pages/solutions/LanguageSchools";
 import InternationalSchools from "./pages/solutions/InternationalSchools";
 import K12Education from "./pages/solutions/K12Education";
 import CorporateTraining from "./pages/solutions/CorporateTraining";
-import AutopayFeatures from "./pages/autopay-features";
 import RequestDemo from "./pages/request-demo";
 import ContactSales from "./pages/contact-sales";
 import Login from "./pages/login";
@@ -61,7 +60,6 @@ const App = () => (
           <Route path="/solutions/corporate-training" element={<CorporateTraining />} />
           
           {/* Feature Pages */}
-          <Route path="/autopay-features" element={<AutopayFeatures />} />
           <Route path="/request-demo" element={<RequestDemo />} />
           <Route path="/contact-sales" element={<ContactSales />} />
           <Route path="/login" element={<Login />} />
