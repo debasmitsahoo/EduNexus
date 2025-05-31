@@ -2,7 +2,41 @@
 
 ## Project Overview
 
-This is a web application built with modern web technologies.
+EduNexus is a modern web application built for educational institutions to manage their operations efficiently. The platform provides a comprehensive suite of tools for academic management, student tracking, and administrative tasks.
+
+## Tech Stack
+
+### Frontend
+- **Framework**: React 18 with TypeScript
+- **Build Tool**: Vite
+- **Styling**: 
+  - Tailwind CSS for utility-first styling
+  - shadcn/ui for pre-built components
+  - Custom design system with navy-blue and deep-yellow theme
+- **State Management**: React Hooks
+- **Routing**: React Router
+- **Icons**: Lucide Icons
+- **Form Handling**: React Hook Form
+- **Validation**: Zod
+
+### Development Tools
+- **Package Manager**: npm
+- **Version Control**: Git
+- **Code Quality**:
+  - ESLint for code linting
+  - Prettier for code formatting
+  - TypeScript for type safety
+- **Development Environment**:
+  - Hot Module Replacement (HMR)
+  - Fast refresh
+  - Source maps
+
+### Performance & Optimization
+- Code splitting
+- Lazy loading
+- Image optimization
+- Responsive design
+- Progressive Web App (PWA) ready
 
 ## How can I edit this code?
 
@@ -42,16 +76,6 @@ npm run dev
 - Click on "New codespace" to launch a new Codespace environment.
 - Edit files directly within the Codespace and commit and push your changes once you're done.
 
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
 ## How can I deploy this project?
 
 To deploy this project:
@@ -62,3 +86,26 @@ npm run build
 ```
 
 2. Deploy the contents of the `dist` directory to your preferred hosting service.
+
+## Project Structure
+
+```
+src/
+├── components/     # Reusable UI components
+├── pages/         # Page components
+├── lib/           # Utility functions and configurations
+├── styles/        # Global styles and Tailwind config
+├── types/         # TypeScript type definitions
+└── assets/        # Static assets like images and icons
+```
+
+## Contributing
+
+This project is the sole creation of Debasmit Sahoo. For any inquiries or collaboration opportunities, please contact debasmitfordev@gmail.com.
+
+---
+
+<div align="center">
+  <h3>Built with ❤️ by Debasmit Sahoo</h3>
+  <p>Passionate about creating impactful educational technology solutions</p>
+</div>
