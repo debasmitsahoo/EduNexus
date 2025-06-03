@@ -13,8 +13,8 @@ const StepCard = ({ number, title, description }: { number: number; title: strin
       </div>
       
       {number < 3 && (
-        <div className="hidden md:block absolute top-1/2 left-full z-0 transform -translate-y-1/2 -translate-x-4">
-          <CircleArrowDown className="h-8 w-8 text-deep-yellow transform rotate-270" />
+        <div className="hidden md:block absolute top-1/2 left-full z-20 transform -translate-y-1/2 translate-x-1">
+          <CircleArrowDown className="h-10 w-10 text-deep-yellow transform -rotate-90" />
         </div>
       )}
     </div>
