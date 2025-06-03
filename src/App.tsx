@@ -12,6 +12,7 @@ import Features from "./pages/Features";
 import Benefits from "./pages/Benefits";
 import HowItWorks from "./pages/HowItWorks";
 import Contact from "./pages/Contact";
+import Solutions from "./pages/Solutions";
 import K12Schools from "./pages/solutions/K12Schools";
 import HigherEducation from "./pages/solutions/HigherEducation";
 import CoachingCenters from "./pages/solutions/CoachingCenters";
@@ -20,6 +21,10 @@ import LanguageSchools from "./pages/solutions/LanguageSchools";
 import InternationalSchools from "./pages/solutions/InternationalSchools";
 import K12Education from "./pages/solutions/K12Education";
 import CorporateTraining from "./pages/solutions/CorporateTraining";
+import Autopay from "./pages/solutions/Autopay";
+import AdminDashboard from "./pages/solutions/AdminDashboard";
+import StudentApp from "./pages/solutions/StudentApp";
+import StaffApp from "./pages/solutions/StaffApp";
 import RequestDemo from "./pages/request-demo";
 import ContactSales from "./pages/contact-sales";
 import Login from "./pages/login";
@@ -48,6 +53,7 @@ const App = () => (
           <Route path="/benefits" element={<Benefits />} />
           <Route path="/how-it-works" element={<HowItWorks />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/solutions" element={<Solutions />} />
           
           {/* Solutions */}
           <Route path="/solutions/k12-schools" element={<K12Schools />} />
@@ -58,6 +64,10 @@ const App = () => (
           <Route path="/solutions/international-schools" element={<InternationalSchools />} />
           <Route path="/solutions/k12-education" element={<K12Education />} />
           <Route path="/solutions/corporate-training" element={<CorporateTraining />} />
+          <Route path="/solutions/autopay" element={<Autopay />} />
+          <Route path="/solutions/admin-dashboard" element={<AdminDashboard />} />
+          <Route path="/solutions/student-app" element={<StudentApp />} />
+          <Route path="/solutions/staff-app" element={<StaffApp />} />
           
           {/* Feature Pages */}
           <Route path="/request-demo" element={<RequestDemo />} />

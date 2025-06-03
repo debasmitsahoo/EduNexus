@@ -5,6 +5,8 @@ import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
 
 const Contact = () => {
   const contactInfo = [
@@ -35,62 +37,85 @@ const Contact = () => {
       <Header />
       <main className="flex-grow pt-24 pb-16">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <h1 className="text-4xl font-bold text-navy-blue mb-8 text-center">Contact Us</h1>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              {/* Contact Information */}
-              <div className="space-y-8">
-                <div className="bg-white rounded-xl shadow-md p-8">
-                  <h2 className="text-2xl font-semibold text-navy-blue mb-6">Get in Touch</h2>
-                  <div className="space-y-6">
-                    {contactInfo.map((info, index) => (
-                      <div key={index} className="flex items-start gap-4">
-                        <div className="flex-shrink-0 mt-1">{info.icon}</div>
-                        <div>
-                          <h3 className="font-semibold text-navy-blue mb-2">{info.title}</h3>
-                          {info.details.map((detail, idx) => (
-                            <p key={idx} className="text-gray-600">{detail}</p>
-                          ))}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
+          <div className="text-center mb-12">
+            <h1 className="text-4xl font-bold mb-4">Contact Us</h1>
+            <p className="text-muted-foreground text-lg">
+              Get in touch with us for any questions or support
+            </p>
+          </div>
 
-              {/* Contact Form */}
-              <div className="bg-white rounded-xl shadow-md p-8">
-                <h2 className="text-2xl font-semibold text-navy-blue mb-6">Send us a Message</h2>
-                <form className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {/* Contact Information */}
+            <div className="space-y-6">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Contact Information</CardTitle>
+                  <CardDescription>Reach out to us through any of these channels</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  <div className="flex items-start space-x-4">
+                    <Phone className="w-6 h-6 text-primary mt-1" />
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">First Name</label>
-                      <Input type="text" placeholder="Debasmit" />
+                      <h3 className="font-semibold">Phone Number</h3>
+                      <p className="text-muted-foreground">+919237379082</p>
                     </div>
+                  </div>
+
+                  <div className="flex items-start space-x-4">
+                    <MapPin className="w-6 h-6 text-primary mt-1" />
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
-                      <Input type="text" placeholder="Sahoo" />
+                      <h3 className="font-semibold">Address</h3>
+                      <p className="text-muted-foreground">
+                        Plot no-1367/3053, Khata No- 644/1188,<br />
+                        Laxmisagar, Bhubaneswar,<br />
+                        Odisha-751006
+                      </p>
                     </div>
                   </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
-                    <Input type="email" placeholder="debasmit@example.com" />
+
+                  <div className="flex items-start space-x-4">
+                    <Mail className="w-6 h-6 text-primary mt-1" />
+                    <div>
+                      <h3 className="font-semibold">Email</h3>
+                      <p className="text-muted-foreground">support@feeleducation.com</p>
+                    </div>
                   </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Subject</label>
-                    <Input type="text" placeholder="How can we help you?" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Message</label>
-                    <Textarea placeholder="Your message here..." className="min-h-[150px]" />
-                  </div>
-                  <Button className="w-full bg-deep-yellow text-navy-blue hover:bg-yellow-600">
-                    Send Message
-                  </Button>
-                </form>
-              </div>
+                </CardContent>
+              </Card>
             </div>
+
+            {/* Contact Form */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Send us a Message</CardTitle>
+                <CardDescription>Fill out the form below and we'll get back to you</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <form className="space-y-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="name">Name</Label>
+                    <Input id="name" placeholder="Your name" />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="email">Email</Label>
+                    <Input id="email" type="email" placeholder="Your email" />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="subject">Subject</Label>
+                    <Input id="subject" placeholder="Subject of your message" />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="message">Message</Label>
+                    <Textarea
+                      id="message"
+                      placeholder="Your message"
+                      className="min-h-[150px]"
+                    />
+                  </div>
+                  <Button className="w-full">Send Message</Button>
+                </form>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </main>

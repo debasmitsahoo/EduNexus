@@ -1,8 +1,8 @@
-# EduNexus Web
+# Feel Education Web
 
 ## Project Overview
 
-EduNexus is a modern web application built for educational institutions to manage their operations efficiently. The platform provides a comprehensive suite of tools for academic management, student tracking, and administrative tasks.
+Feel Education is a modern web application built for educational institutions to manage their operations efficiently. The platform provides a comprehensive suite of tools for academic management, student tracking, and administrative tasks.
 
 ## Tech Stack
 

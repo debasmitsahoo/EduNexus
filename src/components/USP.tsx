@@ -10,21 +10,21 @@ const USP = () => {
           <div className="order-2 lg:order-1">
             <div className="mb-4">
               <span className="bg-deep-yellow/20 text-navy-blue font-semibold px-4 py-1 rounded-full text-sm">
-                EXCLUSIVE FEATURE
+                AUTO COLLECTION
               </span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-navy-blue mb-6">
-              Comprehensive Fee Management System
+              Smart Auto Collection System
             </h2>
             <p className="text-lg text-gray-600 mb-8">
-              Streamline your fee collection process with our robust fee management system. Make fee collection and tracking easier than ever before.
+              Automate your collection process with our intelligent auto collection system. Reduce manual work and ensure timely payments with automated reminders and tracking.
             </p>
             <div className="space-y-4 mb-8">
               {[
-                'Flexible payment scheduling',
-                'Automated payment reminders',
-                'Multiple payment options',
-                'Real-time payment tracking and reporting'
+                'Automated payment scheduling',
+                'Smart payment reminders',
+                'Multiple collection methods',
+                'Real-time collection tracking'
               ].map((item, index) => (
                 <div key={index} className="flex items-start">
                   <CircleCheck className="h-6 w-6 text-deep-yellow mr-2 mt-0.5" />

@@ -32,7 +32,7 @@ const RequestDemo = () => {
             <div className="text-center mb-12">
               <h1 className="text-4xl font-bold text-navy-blue mb-4">Request a Demo</h1>
               <p className="text-lg text-gray-600">
-                Experience how EduNexus can transform your institution. Schedule a personalized demo with our experts.
+                Experience how Feel Education can transform your institution. Schedule a personalized demo with our experts.
               </p>
             </div>
 

@@ -1,18 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Download } from 'lucide-react';
+import PDFViewerModal from './PDFViewerModal';
 
 const Hero = () => {
-  const handleDownload = () => {
-    // Replace with your actual PDF URL
-    const pdfUrl = '/features-brochure.pdf';
-    const link = document.createElement('a');
-    link.href = pdfUrl;
-    link.download = 'EduNexus-Features.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <section className="pt-32 pb-16 md:pt-40 md:pb-24 bg-gradient-to-br from-white to-gray-50">
@@ -20,26 +12,26 @@ const Hero = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <div className="order-2 lg:order-1 animate-fade-in">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy-blue leading-tight mb-4">
-              <span className="block">Automate. Manage.</span>
-              <span className="block">Transform <span className="text-deep-yellow">Your Institution.</span></span>
+              <span className="block">Welcome to</span>
+              <span className="block">Feel <span className="text-deep-yellow">Education</span></span>
             </h1>
             <p className="text-lg md:text-xl text-gray-600 mb-8">
-              EduNexus is a smart ERP designed to simplify academic and administrative operations.
+              Your trusted partner in educational management solutions. We provide comprehensive ERP systems to streamline your institution's operations.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button className="primary-btn text-lg" asChild>
-                <a href="/request-demo">
-                  Request a Demo
+                <a href="https://feeleducation.com/login">
+                  Access Portal
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </a>
               </Button>
               <Button 
                 variant="outline" 
                 className="border-navy-blue text-navy-blue hover:bg-navy-blue hover:text-white text-lg"
-                onClick={handleDownload}
+                onClick={() => setIsModalOpen(true)}
               >
                 <Download className="mr-2 h-5 w-5" />
-                Explore Features
+                Company Profile
               </Button>
             </div>
           </div>
@@ -58,6 +50,11 @@ const Hero = () => {
           </div>
         </div>
       </div>
+
+      <PDFViewerModal 
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </section>
   );
 };

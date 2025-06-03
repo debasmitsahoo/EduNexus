@@ -59,10 +59,9 @@ const TestimonialCard = ({
 const Testimonials = () => {
   const testimonials = [
     {
-      quote: "EduNexus has transformed how we manage our school. The fee management system is intuitive and the reporting features are exactly what we needed.",
+      quote: "Feel Education has transformed how we manage our school. The fee management system is intuitive and the reporting features are exactly what we needed.",
       author: "Dr. Sarah Johnson",
       role: "Principal",
-      school: "St. Mary's International School",
       rating: 5,
       image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=256&q=80"
     },
@@ -70,7 +69,6 @@ const Testimonials = () => {
       quote: "The student management features are comprehensive and easy to use. It's made our administrative tasks much more efficient.",
       author: "Michael Chen",
       role: "Administrative Director",
-      school: "Global Academy",
       rating: 5,
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=256&q=80"
     },
@@ -78,10 +76,30 @@ const Testimonials = () => {
       quote: "As a teacher, I love how easy it is to track student progress and communicate with parents. The interface is clean and user-friendly.",
       author: "Priya Sharma",
       role: "Senior Teacher",
-      school: "Delhi Public School",
       rating: 5,
       image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=256&q=80"
-    }
+    },
+      {
+        quote: "Feel Education has transformed our fee collection process. The intuitive dashboard and automated reminders have saved us countless hours each month.",
+        author: "Rupali Nayak",
+        role: "Principal",
+        rating: 5,
+        image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=256&q=80"
+      },
+      {
+        quote: "As a coordinator, I appreciate how effortlessly we track attendance and generate academic reports now. The cloud-based system keeps everyone—staff, parents, and students—on the same page.",
+        author: "Bijay Patnaik",
+        role: "Academic Coordinator",
+        rating: 5,
+        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=256&q=80"
+      },
+      {
+        quote: "The mobile attendance feature and detailed analytics have been game-changers. Feel Education continuously evolves, and we look forward to future updates based on our feedback.",
+        author: "Prashanth Kumar",
+        role: "Senior Teacher",
+        rating: 5,
+        image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=256&q=80"
+      }
   ];
 
   return (
@@ -95,7 +113,7 @@ const Testimonials = () => {
             What Our Users Say
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Join hundreds of educational institutions that trust EduNexus for their management needs.
+            Join hundreds of educational institutions that trust Feel Education for their management needs.
           </p>
         </div>
         
@@ -122,7 +140,7 @@ const Testimonials = () => {
               ))}
             </div>
             <span className="text-sm text-gray-600 ml-2">
-              Join <span className="font-semibold text-navy-blue">500+</span> satisfied institutions
+              Join <span className="font-semibold text-navy-blue">100+</span> satisfied institutions
             </span>
           </div>
         </div>
