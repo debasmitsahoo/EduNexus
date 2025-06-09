@@ -15,7 +15,7 @@ const PrivacyPolicy = () => {
               <section className="mb-8">
                 <h2 className="text-2xl font-semibold text-navy-blue mb-4">1. Information We Collect</h2>
                 <p className="text-gray-600 mb-4">
-                  At Feel Education, we collect information that you provide directly to us, including:
+                  At EduNexus, we collect information that you provide directly to us, including:
                 </p>
                 <ul className="list-disc pl-6 text-gray-600 mb-4">
                   <li>Name and contact information</li>
@@ -64,7 +64,7 @@ const PrivacyPolicy = () => {
                   If you have any questions about this Privacy Policy, please contact us at:
                 </p>
                 <p className="text-gray-600">
-                  Email: privacy@feeleducation.com<br />
+                  Email: privacy@edunexus.com<br />
                   Phone: +91 1234-567-890
                 </p>
               </section>

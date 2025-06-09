@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, CreditCard, Shield, Clock, BarChart } from 'lucide-react';
 
-const Autopay = () => {
+const FeeManagement = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
@@ -10,10 +10,10 @@ const Autopay = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Autopay Collection
+              Fee Management
             </h1>
             <p className="text-xl text-gray-300 mb-8">
-              Streamline your fee collection process with our automated payment system
+              Streamline your fee collection process with our comprehensive payment system
             </p>
             <Button className="bg-deep-yellow text-navy-blue hover:bg-yellow-600 px-8 py-6 text-lg">
               Get Started
@@ -43,7 +43,7 @@ const Autopay = () => {
             </div>
             <div className="bg-white p-6 rounded-lg shadow-lg">
               <Clock className="h-12 w-12 text-deep-yellow mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Automated Reminders</h3>
+              <h3 className="text-xl font-semibold mb-2">Payment Reminders</h3>
               <p className="text-gray-600">
                 Smart notifications for upcoming and overdue payments
               </p>
@@ -71,7 +71,7 @@ const Autopay = () => {
               <div>
                 <h3 className="text-xl font-semibold mb-2">Reduced Administrative Work</h3>
                 <p className="text-gray-600">
-                  Automate payment collection and reconciliation, saving time and reducing errors
+                  Streamline payment collection and reconciliation, saving time and reducing errors
                 </p>
               </div>
             </div>
@@ -115,9 +115,9 @@ const Autopay = () => {
       {/* CTA Section */}
       <section className="py-20 bg-navy-blue text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to Transform Your Fee Collection?</h2>
+          <h2 className="text-3xl font-bold mb-6">Ready to Transform Your Fee Management?</h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Join the growing number of educational institutions using our Autopay Collection system
+            Join the growing number of educational institutions using our Fee Management system
           </p>
           <Button className="bg-deep-yellow text-navy-blue hover:bg-yellow-600 px-8 py-6 text-lg">
             Schedule a Demo
@@ -129,4 +129,4 @@ const Autopay = () => {
   );
 };
 
-export default Autopay; 
+export default FeeManagement; 

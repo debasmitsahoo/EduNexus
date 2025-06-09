@@ -13,17 +13,12 @@ const Contact = () => {
     {
       icon: <Mail className="h-6 w-6 text-deep-yellow" />,
       title: "Email",
-      details: ["contact@feeleducation.com", "support@feeleducation.com"]
-    },
-    {
-      icon: <Phone className="h-6 w-6 text-deep-yellow" />,
-      title: "Phone",
-      details: ["+91 1234-567-890", "+91 9876-543-210"]
+      details: ["debasmitfordev@gmail.com"]
     },
     {
       icon: <MapPin className="h-6 w-6 text-deep-yellow" />,
       title: "Address",
-      details: ["123 Education Street", "Bhubaneswar, Odisha", "India - 751001"]
+      details: ["Bhubaneswar, Odisha", "India - 751006"]
     },
     {
       icon: <Clock className="h-6 w-6 text-deep-yellow" />,
@@ -77,7 +72,7 @@ const Contact = () => {
                     <Mail className="w-6 h-6 text-primary mt-1" />
                     <div>
                       <h3 className="font-semibold">Email</h3>
-                      <p className="text-muted-foreground">support@feeleducation.com</p>
+                      <p className="text-muted-foreground">support@edunexus.com</p>
                     </div>
                   </div>
                 </CardContent>

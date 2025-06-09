@@ -74,7 +74,7 @@ const CookiePolicy = () => {
                   If you have any questions about our Cookie Policy, please contact us at:
                 </p>
                 <p className="text-gray-600">
-                  Email: privacy@feeleducation.com<br />
+                  Email: privacy@edunexus.com<br />
                   Phone: +91 1234-567-890
                 </p>
               </section>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { GraduationCap, Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
+import { GraduationCap, Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram, Github } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 
@@ -34,7 +34,7 @@ const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center">
               <GraduationCap className="h-8 w-8 text-deep-yellow mr-2" />
-              <span className="font-bold text-xl">Feel Education</span>
+              <span className="font-bold text-xl">EduNexus</span>
             </div>
             <p className="text-gray-300">
               Transforming education through innovative technology solutions for institutions worldwide.
@@ -51,6 +51,9 @@ const Footer = () => {
               </a>
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-deep-yellow">
                 <Instagram className="h-5 w-5" />
+              </a>
+              <a href="https://github.com/debasmitsahoo/EduNexus" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-deep-yellow">
+                <Github className="h-5 w-5" />
               </a>
             </div>
           </div>
@@ -74,8 +77,8 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Solutions</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/solutions/autopay" className="text-gray-300 hover:text-deep-yellow transition-colors">
-                  Autopay Collection
+                <Link to="/solutions/fee-management" className="text-gray-300 hover:text-deep-yellow transition-colors">
+                  Fee Management
                 </Link>
               </li>
               <li>
@@ -103,21 +106,14 @@ const Footer = () => {
               <li className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-deep-yellow mt-1" />
                 <span className="text-gray-300">
-                  Plot no-1367/3053, Khata No- 644/1188,<br />
-                  Laxmisagar, Bhubaneswar,<br />
-                  Odisha-751006
+                  Bhubaneswar, Odisha<br />
+                  India - 751006
                 </span>
               </li>
               <li className="flex items-center space-x-3">
-                <Phone className="h-5 w-5 text-deep-yellow" />
-                <a href="tel:+919237379082" className="text-gray-300 hover:text-deep-yellow">
-                  +91 92373 79082
-                </a>
-              </li>
-              <li className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-deep-yellow" />
-                <a href="mailto:support@feeleducation.com" className="text-gray-300 hover:text-deep-yellow">
-                  support@feeleducation.com
+                <a href="mailto:debasmitfordev@gmail.com" className="text-gray-300 hover:text-deep-yellow">
+                  debasmitfordev@gmail.com
                 </a>
               </li>
             </ul>
@@ -128,7 +124,7 @@ const Footer = () => {
         <div className="border-t border-gray-700 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-gray-300 text-sm">
-              © {currentYear} Feel Education. All rights reserved.
+              © {currentYear} EduNexus. All rights reserved.
             </div>
             <div className="flex space-x-6">
               {legal.map((item) => (
@@ -141,6 +137,14 @@ const Footer = () => {
                 </a>
               ))}
             </div>
+          </div>
+          <div className="mt-4 text-center">
+            <p className="text-gray-400 text-sm mb-2">
+              Built with ❤️ by Debasmit Sahoo
+            </p>
+            <p className="text-gray-400 text-xs">
+              Disclaimer: This project is the sole creation of Debasmit Sahoo and does not have any connection with any entity named EduNexus. The name "EduNexus" was generated using ChatGPT and is used for demonstration purposes only.
+            </p>
           </div>
         </div>
       </div>

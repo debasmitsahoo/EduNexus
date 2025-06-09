@@ -1,11 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Download } from 'lucide-react';
-import PDFViewerModal from './PDFViewerModal';
+import { ArrowRight } from 'lucide-react';
 
 const Hero = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
   return (
     <section className="pt-32 pb-16 md:pt-40 md:pb-24 bg-gradient-to-br from-white to-gray-50">
       <div className="container mx-auto px-4">
@@ -13,25 +10,17 @@ const Hero = () => {
           <div className="order-2 lg:order-1 animate-fade-in">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy-blue leading-tight mb-4">
               <span className="block">Welcome to</span>
-              <span className="block">Feel <span className="text-deep-yellow">Education</span></span>
+              <span className="block">Edu<span className="text-deep-yellow">Nexus</span></span>
             </h1>
             <p className="text-lg md:text-xl text-gray-600 mb-8">
               Your trusted partner in educational management solutions. We provide comprehensive ERP systems to streamline your institution's operations.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button className="primary-btn text-lg" asChild>
-                <a href="https://feeleducation.com/login">
-                  Access Portal
+                <a href="/login">
+                  Login
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </a>
-              </Button>
-              <Button 
-                variant="outline" 
-                className="border-navy-blue text-navy-blue hover:bg-navy-blue hover:text-white text-lg"
-                onClick={() => setIsModalOpen(true)}
-              >
-                <Download className="mr-2 h-5 w-5" />
-                Company Profile
               </Button>
             </div>
           </div>
@@ -50,11 +39,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-
-      <PDFViewerModal 
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      />
     </section>
   );
 };

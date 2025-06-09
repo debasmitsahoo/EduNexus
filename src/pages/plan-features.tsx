@@ -35,7 +35,7 @@ const PlanFeatures = () => {
           "Community forum access"
         ],
         "Limitations": [
-          "Up to 200 students",
+          "Up to 100 students",
           "Basic features only",
           "Standard support response time"
         ]
@@ -43,7 +43,7 @@ const PlanFeatures = () => {
     },
     standard: {
       name: "Standard Plan",
-      price: "₹15,999",
+      price: "₹4,999",
       period: "month",
       description: "Ideal for growing institutions that need advanced features and automation.",
       features: {
@@ -89,7 +89,7 @@ const PlanFeatures = () => {
     },
     enterprise: {
       name: "Enterprise Plan",
-      price: "₹27,999",
+      price: "₹14,999",
       period: "month",
       description: "Complete solution for large institutions requiring maximum flexibility and customization.",
       features: {

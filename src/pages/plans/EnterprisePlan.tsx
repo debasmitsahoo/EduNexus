@@ -8,9 +8,9 @@ const EnterprisePlan = () => {
   const plan = {
     name: "Enterprise Plan",
     price: {
-      monthly: "₹27,999",
-      yearly: "₹268,788",
-      monthlyEquivalent: "₹22,399"
+      monthly: "₹14,999",
+      yearly: "₹143,999",
+      monthlyEquivalent: "₹11,999"
     },
     period: "month",
     description: "Complete solution for large institutions requiring maximum flexibility and customization.",

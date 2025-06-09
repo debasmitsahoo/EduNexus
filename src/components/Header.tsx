@@ -31,7 +31,7 @@ const Header = () => {
         <div className="container mx-auto px-4 flex items-center justify-between">
           <a href="/" className="flex items-center text-navy-blue">
             <GraduationCap className="h-8 w-8 text-deep-yellow mr-2" />
-            <span className="font-bold text-xl md:text-2xl">Feel Education</span>
+            <span className="font-bold text-xl md:text-2xl">EduNexus</span>
           </a>
 
           {/* Desktop Menu */}
@@ -40,7 +40,7 @@ const Header = () => {
             <a href="/solutions" className="text-navy-blue hover:text-deep-yellow transition-colors">Solutions</a>
             <a href="/contact" className="text-navy-blue hover:text-deep-yellow transition-colors">Contact</a>
             <Button className="primary-btn ml-2" asChild>
-              <a href="https://feeleducation.com/login">Access Portal</a>
+              <a href="/login">Login</a>
             </Button>
           </nav>
 
@@ -83,7 +83,7 @@ const Header = () => {
                 Contact
               </a>
               <Button className="primary-btn w-full" asChild>
-                <a href="https://feeleducation.com/login">Access Portal</a>
+                <a href="/login">Login</a>
               </Button>
             </div>
           </div>

@@ -15,14 +15,14 @@ const TermsOfService = () => {
               <section className="mb-8">
                 <h2 className="text-2xl font-semibold text-navy-blue mb-4">1. Acceptance of Terms</h2>
                 <p className="text-gray-600 mb-4">
-                  By accessing and using Feel Education's services, you agree to be bound by these Terms of Service and all applicable laws and regulations.
+                  By accessing and using EduNexus's services, you agree to be bound by these Terms of Service and all applicable laws and regulations.
                 </p>
               </section>
 
               <section className="mb-8">
                 <h2 className="text-2xl font-semibold text-navy-blue mb-4">2. Project Ownership</h2>
                 <p className="text-gray-600 mb-4">
-                  Feel Education is the sole creation of Debasmit Sahoo. All rights, including but not limited to intellectual property rights, copyrights, trademarks, and any other proprietary rights associated with the project, are exclusively owned by Debasmit Sahoo.
+                  EduNexus is the sole creation of Debasmit Sahoo. All rights, including but not limited to intellectual property rights, copyrights, trademarks, and any other proprietary rights associated with the service are owned by Debasmit Sahoo.
                 </p>
               </section>
 
@@ -63,7 +63,7 @@ const TermsOfService = () => {
               <section className="mb-8">
                 <h2 className="text-2xl font-semibold text-navy-blue mb-4">6. Limitation of Liability</h2>
                 <p className="text-gray-600 mb-4">
-                  Feel Education shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of or inability to use the service.
+                  EduNexus shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of or inability to use the service.
                 </p>
               </section>
 

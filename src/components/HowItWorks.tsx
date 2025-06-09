@@ -43,7 +43,7 @@ const HowItWorks = () => {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-navy-blue mb-4">How It Works</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Getting started with Feel Education is simple and straightforward with our three-step process.
+            Getting started with EduNexus is simple and straightforward with our three-step process.
           </p>
         </div>
         

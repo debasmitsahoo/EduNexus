@@ -8,9 +8,9 @@ const StandardPlan = () => {
   const plan = {
     name: "Standard Plan",
     price: {
-      monthly: "₹15,999",
-      yearly: "₹153,588",
-      monthlyEquivalent: "₹12,799"
+      monthly: "₹4,999",
+      yearly: "₹47,999",
+      monthlyEquivalent: "₹3,999"
     },
     period: "month",
     description: "Ideal for growing institutions that need advanced features and automation.",

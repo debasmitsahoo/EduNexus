@@ -59,7 +59,7 @@ const TestimonialCard = ({
 const Testimonials = () => {
   const testimonials = [
     {
-      quote: "Feel Education has transformed how we manage our school. The fee management system is intuitive and the reporting features are exactly what we needed.",
+      quote: "EduNexus has transformed how we manage our school. The fee management system is intuitive and the reporting features are exactly what we needed.",
       author: "Dr. Sarah Johnson",
       role: "Principal",
       rating: 5,
@@ -80,7 +80,7 @@ const Testimonials = () => {
       image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=256&q=80"
     },
       {
-        quote: "Feel Education has transformed our fee collection process. The intuitive dashboard and automated reminders have saved us countless hours each month.",
+        quote: "EduNexus has transformed our fee collection process. The intuitive dashboard and automated reminders have saved us countless hours each month.",
         author: "Rupali Nayak",
         role: "Principal",
         rating: 5,
@@ -94,7 +94,7 @@ const Testimonials = () => {
         image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=256&q=80"
       },
       {
-        quote: "The mobile attendance feature and detailed analytics have been game-changers. Feel Education continuously evolves, and we look forward to future updates based on our feedback.",
+        quote: "The mobile attendance feature and detailed analytics have been game-changers. EduNexus continuously evolves, and we look forward to future updates based on our feedback.",
         author: "Prashanth Kumar",
         role: "Senior Teacher",
         rating: 5,
@@ -113,7 +113,7 @@ const Testimonials = () => {
             What Our Users Say
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Join hundreds of educational institutions that trust Feel Education for their management needs.
+            Join hundreds of educational institutions that trust EduNexus for their management needs.
           </p>
         </div>
         

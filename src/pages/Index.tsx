@@ -30,7 +30,7 @@ const Index = () => {
             {/* Content */}
             <div className="max-w-4xl mx-auto text-center z-10">
               <h2 className="text-3xl md:text-4xl font-bold text-navy-blue mb-4">
-                Revolutionize the way your school operates with <span className="text-deep-yellow">Feel Education</span> – the ultimate School Management System in your pocket.
+                Revolutionize the way your school operates with <span className="text-deep-yellow">EduNexus</span> – the ultimate School Management System in your pocket.
               </h2>
               <p className="text-lg text-gray-700 mb-6">
                 Empower administrators, teachers, students, and parents with a smart, secure, and seamless experience. From tracking attendance and managing assignments to sending announcements and viewing exam results — everything is just a tap away.
@@ -41,7 +41,7 @@ const Index = () => {
                 <li className="flex items-center text-navy-blue font-medium text-lg"><span className="mr-3 text-deep-yellow text-2xl">—</span>Access secure, real-time data</li>
               </ul>
               <p className="text-lg text-gray-700 mb-8">
-                Don't miss out on transforming your school experience. Download the Feel Education app today and lead the future of smart schooling!
+                Don't miss out on transforming your school experience. Download the EduNexus app today and lead the future of smart schooling!
               </p>
               <button
                 className="px-8 py-3 bg-navy-blue text-white font-semibold rounded-lg shadow hover:bg-deep-yellow hover:text-navy-blue transition-colors duration-200 text-lg"

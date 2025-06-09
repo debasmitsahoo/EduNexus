@@ -93,35 +93,39 @@ const Pricing = () => {
       price: 0,
       yearlyPrice: 0,
       features: [
-        "Up to 200 students",
+        "Up to 100 students",
         "Basic student database",
         "Simple attendance tracking",
         "Basic timetable creation",
         "Email support",
-        "Community forum access"
+        "Community forum access",
+        "Basic reporting"
       ]
     },
     {
-      tier: "Premium",
-      price: 999,
-      yearlyPrice: 9599,
+      tier: "Standard",
+      price: 4999,
+      yearlyPrice: 47999,
       features: [
-        "Unlimited students",
+        "Up to 500 students",
         "Advanced student database",
         "Comprehensive attendance tracking",
         "Advanced timetable management",
         "Fee management system",
         "Parent communication portal",
         "Performance analytics",
-        "Priority support"
+        "Priority support",
+        "Custom reports",
+        "Mobile app access"
       ],
       recommended: true
     },
     {
       tier: "Enterprise",
-      price: 0,
-      yearlyPrice: 0,
+      price: 14999,
+      yearlyPrice: 143999,
       features: [
+        "Unlimited students",
         "Custom solutions",
         "Dedicated account manager",
         "Custom integrations",
@@ -129,7 +133,8 @@ const Pricing = () => {
         "Advanced security features",
         "Custom feature development",
         "24/7 priority support",
-        "On-site training"
+        "On-site training",
+        "Multi-branch support"
       ],
       isEnterprise: true
     }
@@ -167,6 +172,16 @@ const Pricing = () => {
               isEnterprise={plan.isEnterprise}
             />
           ))}
+        </div>
+
+        <div className="text-center mt-16">
+          <h3 className="text-2xl font-bold text-navy-blue mb-4">Need More?</h3>
+          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+            Looking for a custom solution or have specific requirements? Our team is ready to help you create the perfect plan for your institution.
+          </p>
+          <Button className="bg-deep-yellow text-navy-blue hover:bg-yellow-600 px-8 py-3 text-lg" asChild>
+            <a href="/contact-sales">Contact Sales</a>
+          </Button>
         </div>
       </div>
     </section>

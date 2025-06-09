@@ -21,7 +21,7 @@ import LanguageSchools from "./pages/solutions/LanguageSchools";
 import InternationalSchools from "./pages/solutions/InternationalSchools";
 import K12Education from "./pages/solutions/K12Education";
 import CorporateTraining from "./pages/solutions/CorporateTraining";
-import Autopay from "./pages/solutions/Autopay";
+import FeeManagement from "./pages/solutions/FeeManagement";
 import AdminDashboard from "./pages/solutions/AdminDashboard";
 import StudentApp from "./pages/solutions/StudentApp";
 import StaffApp from "./pages/solutions/StaffApp";
@@ -64,7 +64,7 @@ const App = () => (
           <Route path="/solutions/international-schools" element={<InternationalSchools />} />
           <Route path="/solutions/k12-education" element={<K12Education />} />
           <Route path="/solutions/corporate-training" element={<CorporateTraining />} />
-          <Route path="/solutions/autopay" element={<Autopay />} />
+          <Route path="/solutions/fee-management" element={<FeeManagement />} />
           <Route path="/solutions/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/solutions/student-app" element={<StudentApp />} />
           <Route path="/solutions/staff-app" element={<StaffApp />} />

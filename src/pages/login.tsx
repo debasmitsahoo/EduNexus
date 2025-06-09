@@ -44,7 +44,7 @@ const Login = () => {
           <div className="max-w-md mx-auto">
             <div className="text-center mb-8">
               <h1 className="text-3xl font-bold text-navy-blue mb-2">Welcome Back</h1>
-              <p className="text-gray-600">Sign in to access your Feel Education dashboard</p>
+              <p className="text-gray-600">Sign in to access your EduNexus dashboard</p>
             </div>
 
             <div className="bg-white rounded-xl shadow-lg p-8">

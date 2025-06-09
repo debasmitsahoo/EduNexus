@@ -43,10 +43,10 @@ const Solutions = () => {
     },
     {
       icon: <Calendar className="h-12 w-12 text-deep-yellow" />,
-      title: "Auto Collection",
-      description: "Automated fee collection and financial management system for educational institutions.",
+      title: "Fee Management",
+      description: "Comprehensive fee management system for educational institutions with flexible payment options.",
       features: [
-        "Automated fee collection",
+        "Fee collection",
         "Payment tracking",
         "Receipt generation",
         "Financial reporting",
@@ -111,7 +111,7 @@ const Solutions = () => {
 
           <div className="mt-16 text-center">
             <a 
-              href="https://feeleducation.com/login" 
+              href="https://edunexus.com/login" 
               className="inline-block bg-deep-yellow text-white px-8 py-3 rounded-lg font-semibold hover:bg-deep-yellow/90 transition-colors"
             >
               Access Our Solutions

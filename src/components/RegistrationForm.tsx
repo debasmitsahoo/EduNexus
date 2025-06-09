@@ -30,7 +30,7 @@ const RegistrationForm = ({ isOpen, onClose }: RegistrationFormProps) => {
             Create Your School
           </DialogTitle>
           <p className="text-gray-500 text-center mt-2">
-            Fill in the details below to start your journey with Feel Education
+            Fill in the details below to start your journey with EduNexus
           </p>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-6 py-6">
