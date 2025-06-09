@@ -23,12 +23,12 @@ export default function AdminLayout() {
   const location = useLocation();
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gray-50">
       {/* Sidebar */}
-      <div className="fixed inset-y-0 left-0 w-64 bg-white shadow-lg">
+      <div className="fixed inset-y-0 left-0 w-64 bg-navy-blue">
         <div className="flex flex-col h-full">
           {/* Logo */}
-          <div className="flex items-center justify-center h-16 px-4 bg-gray-900">
+          <div className="flex items-center justify-center h-16 px-4 border-b border-navy-blue/20">
             <h1 className="text-xl font-bold text-white">EduNexus Admin</h1>
           </div>
 
@@ -40,10 +40,10 @@ export default function AdminLayout() {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`flex items-center px-4 py-2 text-sm font-medium rounded-md ${
+                  className={`flex items-center px-4 py-2 text-sm font-medium rounded-md transition-colors ${
                     isActive
-                      ? 'bg-gray-900 text-white'
-                      : 'text-gray-600 hover:bg-gray-700 hover:text-white'
+                      ? 'bg-deep-yellow text-navy-blue'
+                      : 'text-gray-300 hover:bg-navy-blue/50 hover:text-white'
                   }`}
                 >
                   <item.icon className="w-5 h-5 mr-3" />
@@ -54,10 +54,10 @@ export default function AdminLayout() {
           </nav>
 
           {/* Logout Button */}
-          <div className="p-4 border-t">
+          <div className="p-4 border-t border-navy-blue/20">
             <Button
               variant="ghost"
-              className="w-full justify-start text-gray-600 hover:bg-gray-700 hover:text-white"
+              className="w-full justify-start text-gray-300 hover:bg-navy-blue/50 hover:text-white"
               onClick={signOut}
             >
               <LogOut className="w-5 h-5 mr-3" />

@@ -351,26 +351,26 @@ export default function Teachers() {
         />
       </div>
 
-      <div className="rounded-md border">
+      <div className="bg-white shadow-lg rounded-lg overflow-hidden">
         <table className="min-w-full divide-y divide-gray-200">
-          <thead className="bg-gray-50">
+          <thead className="bg-navy-blue">
             <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                 Name
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                 Email
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                 Phone
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                 Subject
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                 Status
               </th>
-              <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-right text-xs font-medium text-white uppercase tracking-wider">
                 Actions
               </th>
             </tr>
@@ -390,42 +390,42 @@ export default function Teachers() {
               </tr>
             ) : (
               filteredTeachers.map((teacher) => (
-                <tr key={teacher.id}>
+                <tr key={teacher.id} className="hover:bg-gray-50">
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm font-medium text-gray-900">
-                      {teacher.first_name} {teacher.last_name}
-                    </div>
+                    <div className="text-sm font-medium text-navy-blue">{teacher.first_name} {teacher.last_name}</div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-900">{teacher.email}</div>
+                    <div className="text-sm text-gray-600">{teacher.email}</div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-900">{teacher.phone}</div>
+                    <div className="text-sm text-gray-600">{teacher.phone}</div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-900">
+                    <div className="text-sm text-gray-600">
                       {subjects.find(s => s.id === teacher.subject_id)?.name || 'N/A'}
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                      teacher.status === 'active' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+                      teacher.status === 'active'
+                        ? 'bg-green-100 text-green-800'
+                        : 'bg-red-100 text-red-800'
                     }`}>
                       {teacher.status}
                     </span>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                    <button 
-                      className="text-blue-600 hover:text-blue-900 mr-4"
+                    <button
                       onClick={() => handleEdit(teacher)}
+                      className="text-navy-blue hover:text-deep-yellow mr-4"
                     >
-                      <Edit className="h-4 w-4" />
+                      <Edit className="w-5 h-5" />
                     </button>
                     <button
-                      className="text-red-600 hover:text-red-900"
                       onClick={() => handleDelete(teacher.id)}
+                      className="text-red-600 hover:text-red-800"
                     >
-                      <Trash2 className="h-4 w-4" />
+                      <Trash2 className="w-5 h-5" />
                     </button>
                   </td>
                 </tr>

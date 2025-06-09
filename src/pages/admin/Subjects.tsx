@@ -220,23 +220,23 @@ export default function Subjects() {
         />
       </div>
 
-      <div className="rounded-md border">
+      <div className="bg-white shadow-lg rounded-lg overflow-hidden">
         <table className="min-w-full divide-y divide-gray-200">
-          <thead className="bg-gray-50">
+          <thead className="bg-navy-blue">
             <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                 Name
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                 Code
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                 Description
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                 Created At
               </th>
-              <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-right text-xs font-medium text-white uppercase tracking-wider">
                 Actions
               </th>
             </tr>
@@ -256,31 +256,31 @@ export default function Subjects() {
               </tr>
             ) : (
               filteredSubjects.map((subject) => (
-                <tr key={subject.id}>
+                <tr key={subject.id} className="hover:bg-gray-50">
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm font-medium text-gray-900">{subject.name}</div>
+                    <div className="text-sm font-medium text-navy-blue">{subject.name}</div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-900">{subject.code}</div>
+                    <div className="text-sm text-gray-600">{subject.code}</div>
                   </td>
                   <td className="px-6 py-4">
-                    <div className="text-sm text-gray-900 line-clamp-2">{subject.description}</div>
+                    <div className="text-sm text-gray-600">{subject.description}</div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                     {new Date(subject.created_at).toLocaleDateString()}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                    <button 
-                      className="text-blue-600 hover:text-blue-900 mr-4"
+                    <button
                       onClick={() => handleEdit(subject)}
+                      className="text-navy-blue hover:text-deep-yellow mr-4"
                     >
-                      <Edit className="h-4 w-4" />
+                      <Edit className="w-5 h-5" />
                     </button>
                     <button
-                      className="text-red-600 hover:text-red-900"
                       onClick={() => handleDelete(subject.id)}
+                      className="text-red-600 hover:text-red-800"
                     >
-                      <Trash2 className="h-4 w-4" />
+                      <Trash2 className="w-5 h-5" />
                     </button>
                   </td>
                 </tr>

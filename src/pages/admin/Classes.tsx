@@ -220,23 +220,23 @@ export default function Classes() {
         />
       </div>
 
-      <div className="bg-white shadow-sm rounded-lg overflow-hidden">
+      <div className="bg-white shadow-lg rounded-lg overflow-hidden">
         <table className="min-w-full divide-y divide-gray-200">
-          <thead className="bg-gray-50">
+          <thead className="bg-navy-blue">
             <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                 Class Name
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                 Section
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                 Academic Year
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                 Created At
               </th>
-              <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-right text-xs font-medium text-white uppercase tracking-wider">
                 Actions
               </th>
             </tr>
@@ -255,34 +255,32 @@ export default function Classes() {
                 </td>
               </tr>
             ) : (
-              filteredClasses.map((class_) => (
-                <tr key={class_.id}>
+              filteredClasses.map((classItem) => (
+                <tr key={classItem.id} className="hover:bg-gray-50">
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm font-medium text-gray-900">{class_.name}</div>
+                    <div className="text-sm font-medium text-navy-blue">{classItem.name}</div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-900">{class_.section}</div>
+                    <div className="text-sm text-gray-600">{classItem.section}</div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-900">{class_.academic_year}</div>
+                    <div className="text-sm text-gray-600">{classItem.academic_year}</div>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-900">
-                      {new Date(class_.created_at).toLocaleDateString()}
-                    </div>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    {new Date(classItem.created_at).toLocaleDateString()}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                    <button 
-                      className="text-blue-600 hover:text-blue-900 mr-4"
-                      onClick={() => handleEdit(class_)}
+                    <button
+                      onClick={() => handleEdit(classItem)}
+                      className="text-navy-blue hover:text-deep-yellow mr-4"
                     >
-                      <Edit className="h-4 w-4" />
+                      <Edit className="w-5 h-5" />
                     </button>
                     <button
-                      className="text-red-600 hover:text-red-900"
-                      onClick={() => handleDelete(class_.id)}
+                      onClick={() => handleDelete(classItem.id)}
+                      className="text-red-600 hover:text-red-800"
                     >
-                      <Trash2 className="h-4 w-4" />
+                      <Trash2 className="w-5 h-5" />
                     </button>
                   </td>
                 </tr>

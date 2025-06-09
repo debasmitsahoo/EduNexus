@@ -59,31 +59,31 @@ export default function Dashboard() {
       name: 'Total Students',
       value: stats.students,
       icon: Users,
-      color: 'bg-blue-500',
+      color: 'bg-navy-blue',
     },
     {
       name: 'Total Classes',
       value: stats.classes,
       icon: BookOpen,
-      color: 'bg-green-500',
+      color: 'bg-deep-yellow',
     },
     {
       name: 'Total Teachers',
       value: stats.teachers,
       icon: GraduationCap,
-      color: 'bg-purple-500',
+      color: 'bg-navy-blue',
     },
     {
       name: 'Total Subjects',
       value: stats.subjects,
       icon: BookText,
-      color: 'bg-orange-500',
+      color: 'bg-deep-yellow',
     },
   ]
 
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
+      <h1 className="text-3xl font-bold text-navy-blue">Dashboard</h1>
       
       {loading ? (
         <div className="text-center text-gray-500">Loading statistics...</div>
@@ -92,7 +92,7 @@ export default function Dashboard() {
           {statCards.map((stat) => (
             <div
               key={stat.name}
-              className="bg-white rounded-lg shadow p-6"
+              className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow"
             >
               <div className="flex items-center">
                 <div className={`p-3 rounded-full ${stat.color}`}>
@@ -100,7 +100,7 @@ export default function Dashboard() {
                 </div>
                 <div className="ml-4">
                   <p className="text-sm font-medium text-gray-600">{stat.name}</p>
-                  <p className="text-2xl font-semibold text-gray-900">{stat.value}</p>
+                  <p className="text-2xl font-semibold text-navy-blue">{stat.value}</p>
                 </div>
               </div>
             </div>
