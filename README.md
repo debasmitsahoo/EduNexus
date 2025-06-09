@@ -38,54 +38,125 @@ EduNexus is a modern web application built for educational institutions to manag
 - Responsive design
 - Progressive Web App (PWA) ready
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+### Active Features
+1. **User Management**
+   - Secure authentication system
+   - Role-based access control (Admin, Teacher, Student)
+   - Profile management
+   - Password reset functionality
 
-**Use your preferred IDE**
+2. **Admin Dashboard**
+   - Overview statistics
+   - User management
+   - Course management
+   - Analytics and reporting
+   - Subscription plan management
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+3. **Course Management**
+   - Course creation and editing
+   - Content organization
+   - File uploads
+   - Course scheduling
 
-Follow these steps:
+4. **Student Portal**
+   - Course enrollment
+   - Progress tracking
+   - Assignment submission
+   - Grade viewing
+
+5. **Teacher Interface**
+   - Course management
+   - Student progress monitoring
+   - Assignment creation and grading
+   - Communication tools
+
+### Upcoming Features
+1. **Advanced Analytics**
+   - Detailed performance metrics
+   - Custom report generation
+   - Data visualization
+   - Predictive analytics
+
+2. **Communication Tools**
+   - Real-time chat
+   - Video conferencing
+   - Discussion forums
+   - Announcement system
+
+3. **Assessment System**
+   - Automated grading
+   - Quiz creation
+   - Performance analytics
+   - Custom assessment templates
+
+4. **Mobile Application**
+   - Cross-platform support
+   - Offline access
+   - Push notifications
+   - Mobile-optimized interface
+
+5. **Integration Capabilities**
+   - LMS integration
+   - Calendar sync
+   - Third-party tool integration
+   - API access
+
+## Subscription Plans
+
+### Free Plan
+- Basic user management
+- Limited course creation
+- Standard support
+- Basic analytics
+
+### Standard Plan
+- Advanced user management
+- Unlimited course creation
+- Priority support
+- Advanced analytics
+- Custom branding
+
+### Enterprise Plan
+- All Standard features
+- Custom integrations
+- Dedicated support
+- Advanced security
+- Custom development
+
+## Getting Started
+
+### Prerequisites
+- Node.js (v16 or higher)
+- npm (v7 or higher)
+- Git
+
+### Installation
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
+# Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
+# Navigate to project directory
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### Building for Production
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## How can I deploy this project?
-
-To deploy this project:
-
-1. Build the project:
 ```sh
+# Create production build
 npm run build
-```
 
-2. Deploy the contents of the `dist` directory to your preferred hosting service.
+# Preview production build
+npm run preview
+```
 
 ## Project Structure
 
@@ -102,6 +173,10 @@ src/
 ## Contributing
 
 This project is the sole creation of Debasmit Sahoo. For any inquiries or collaboration opportunities, please contact debasmitfordev@gmail.com.
+
+## License
+
+This project is proprietary software. All rights reserved.
 
 ---
 
