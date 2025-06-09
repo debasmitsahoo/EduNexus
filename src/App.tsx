@@ -29,7 +29,7 @@ import StudentApp from "./pages/solutions/StudentApp";
 import StaffApp from "./pages/solutions/StaffApp";
 import RequestDemo from "./pages/request-demo";
 import ContactSales from "./pages/contact-sales";
-import Login from "./pages/Login";
+import Login from "./pages/login";
 import SignUp from "./pages/SignUp";
 import PlanFeatures from "./pages/plan-features";
 import FreePlan from "./pages/plans/FreePlan";
