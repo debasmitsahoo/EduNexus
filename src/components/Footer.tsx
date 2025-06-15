@@ -140,10 +140,10 @@ const Footer = () => {
           </div>
           <div className="mt-4 text-center">
             <p className="text-gray-400 text-sm mb-2">
-              Built with ❤️ by Debasmit Sahoo
+              Built with ❤️ by Group 2
             </p>
             <p className="text-gray-400 text-xs">
-              Disclaimer: This project is the sole creation of Debasmit Sahoo and does not have any connection with any entity named EduNexus. The name "EduNexus" was generated using ChatGPT and is used for demonstration purposes only.
+              Disclaimer: This project is the sole creation of Group 2 and does not have any connection with any entity named EduNexus. The name "EduNexus" was generated using ChatGPT and is used for demonstration purposes only.
             </p>
           </div>
         </div>
