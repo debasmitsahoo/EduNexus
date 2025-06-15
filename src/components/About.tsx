@@ -14,7 +14,7 @@ const About = () => {
             <blockquote className="text-lg md:text-xl text-navy-blue italic">
               Welcome to EduNexus. We created this ERP to simplify fee collection, admissions, attendance, and academic reporting in one cloud-based platform. With customizable dashboards and real-time portals, administrators, teachers, students, and parents can access the information they need, when they need it.
             </blockquote>
-            <p className="text-deep-yellow font-semibold mt-4">— Debasmit Sahoo, Front-End Developer</p>
+            <p className="text-deep-yellow font-semibold mt-4">— Team EduNexus</p>
           </div>
           
           <div className="flex flex-wrap justify-center gap-6">
