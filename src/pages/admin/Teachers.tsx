@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../../lib/supabase';
-import { Search, Edit, Trash2, Plus } from 'lucide-react';
+import { Search, Edit, Trash2, Plus, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
@@ -47,14 +47,15 @@ export default function Teachers() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [selectedTeacher, setSelectedTeacher] = useState<Teacher | null>(null);
   const [formData, setFormData] = useState({
-    first_name: '',
-    last_name: '',
     email: '',
-    phone: '',
-    subject_id: '',
+    fullName: '',
+    subjectId: '',
     status: 'active' as const,
   });
   const { toast } = useToast();
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     fetchTeachers();
@@ -63,13 +64,45 @@ export default function Teachers() {
 
   const fetchTeachers = async () => {
     try {
+      setLoading(true);
       const { data, error } = await supabase
-        .from('teachers')
-        .select('*')
-        .order('first_name', { ascending: true });
+        .rpc('get_teachers_with_profiles');
 
-      if (error) throw error;
-      setTeachers(data || []);
+      if (error) {
+        console.error('Error fetching teachers:', error);
+        toast({
+          title: "Error",
+          description: "Failed to fetch teachers",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      if (!data) {
+        setTeachers([]);
+        return;
+      }
+
+      // Transform the data to match our interface
+      const transformedData = data.map((teacher: any) => {
+        const [firstName, ...lastNameParts] = (teacher.profile_full_name || '').split(' ');
+        const lastName = lastNameParts.join(' ');
+
+        return {
+          id: teacher.id,
+          profile_id: teacher.profile_id,
+          first_name: firstName || 'Unknown',
+          last_name: lastName || 'Unknown',
+          email: teacher.profile_email || 'No Email',
+          phone: '', // Phone is not stored in profiles table
+          subject_id: teacher.subject_id,
+          status: teacher.status,
+          created_at: teacher.created_at,
+          updated_at: teacher.created_at, // Using created_at as updated_at since it's not in the function
+        };
+      });
+
+      setTeachers(transformedData);
     } catch (error) {
       console.error('Error fetching teachers:', error);
       toast({
@@ -103,96 +136,93 @@ export default function Teachers() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError('');
+    setSuccess('');
+    setIsSubmitting(true);
+
     try {
-      // First create the auth user
+      // Validate email format
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!emailRegex.test(formData.email)) {
+        throw new Error('Please enter a valid email address');
+      }
+
+      // Validate other required fields
+      if (!formData.fullName.trim()) {
+        throw new Error('Full name is required');
+      }
+      if (!formData.subjectId) {
+        throw new Error('Subject is required');
+      }
+
+      // Create auth user
       const { data: authData, error: authError } = await supabase.auth.signUp({
         email: formData.email,
-        password: 'Teacher@123', // Default password
+        password: 'Welcome@123', // Default password
         options: {
           data: {
+            full_name: formData.fullName,
             role: 'instructor'
           }
         }
       });
 
       if (authError) {
-        if (authError.message.includes('30 seconds')) {
-          toast({
-            title: "Error",
-            description: "Please wait 30 seconds before creating another teacher",
-            variant: "destructive",
-          });
-          return;
+        if (authError.message.includes('already registered')) {
+          throw new Error('A user with this email already exists');
         }
         throw authError;
       }
 
-      if (!authData.user?.id) {
+      if (!authData.user) {
         throw new Error('Failed to create user account');
       }
 
-      // Wait a moment for the auth user to be fully created
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Reduced wait time to 500ms
+      await new Promise(resolve => setTimeout(resolve, 500));
 
-      // Create teacher using the new function
-      const { data: teacherId, error: teacherError } = await supabase
+      // Create teacher profile
+      const { data: teacherData, error: teacherError } = await supabase
         .rpc('create_teacher', {
           p_email: formData.email,
-          p_full_name: `${formData.first_name} ${formData.last_name}`,
-          p_subject_id: formData.subject_id,
+          p_full_name: formData.fullName,
+          p_subject_id: formData.subjectId,
           p_status: formData.status
         });
 
       if (teacherError) {
-        console.error('Teacher creation error:', teacherError);
-        // If teacher creation fails, try to delete the auth user
-        await supabase.auth.admin.deleteUser(authData.user.id);
+        // If teacher creation fails, try to clean up the auth user
+        try {
+          await supabase.auth.admin.deleteUser(authData.user.id);
+        } catch (cleanupError) {
+          console.error('Error cleaning up auth user:', cleanupError);
+        }
         throw teacherError;
       }
 
-      toast({
-        title: "Success",
-        description: "Teacher added successfully",
+      setSuccess('Teacher created successfully');
+      setFormData({
+        email: '',
+        fullName: '',
+        subjectId: '',
+        status: 'active'
       });
-
-      setIsDialogOpen(false);
       fetchTeachers();
-      resetForm();
-    } catch (error: any) {
-      console.error('Error saving teacher:', error);
-      let errorMessage = "Failed to save teacher";
-      
-      // Handle specific error cases
-      if (error.message.includes('duplicate key')) {
-        errorMessage = "A teacher with this email already exists";
-      } else if (error.message.includes('foreign key')) {
-        errorMessage = "Invalid subject selected";
-      } else if (error.message.includes('not-null')) {
-        errorMessage = "Please fill in all required fields";
-      } else if (error.message.includes('auth')) {
-        errorMessage = "Failed to create user account";
-      } else if (error.message.includes('30 seconds')) {
-        errorMessage = "Please wait 30 seconds before creating another teacher";
-      } else if (error.message.includes('Auth user not found')) {
-        errorMessage = "Failed to create teacher profile. Please try again.";
-      }
-
-      toast({
-        title: "Error",
-        description: errorMessage,
-        variant: "destructive",
-      });
+      setIsDialogOpen(false);
+    } catch (err: any) {
+      console.error('Error saving teacher:', err);
+      setError(err.message || 'Failed to save teacher');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   const handleEdit = (teacher: Teacher) => {
     setSelectedTeacher(teacher);
     setFormData({
-      first_name: teacher.first_name,
-      last_name: teacher.last_name,
       email: teacher.email,
-      phone: teacher.phone,
-      subject_id: teacher.subject_id,
+      fullName: `${teacher.first_name} ${teacher.last_name}`,
+      subjectId: teacher.subject_id,
       status: teacher.status,
     });
     setIsDialogOpen(true);
@@ -226,11 +256,9 @@ export default function Teachers() {
   const resetForm = () => {
     setSelectedTeacher(null);
     setFormData({
-      first_name: '',
-      last_name: '',
       email: '',
-      phone: '',
-      subject_id: '',
+      fullName: '',
+      subjectId: '',
       status: 'active',
     });
   };
@@ -258,20 +286,11 @@ export default function Teachers() {
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <Label htmlFor="first_name">First Name</Label>
+                  <Label htmlFor="fullName">Full Name</Label>
                   <Input
-                    id="first_name"
-                    value={formData.first_name}
-                    onChange={(e) => setFormData({ ...formData, first_name: e.target.value })}
-                    required
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="last_name">Last Name</Label>
-                  <Input
-                    id="last_name"
-                    value={formData.last_name}
-                    onChange={(e) => setFormData({ ...formData, last_name: e.target.value })}
+                    id="fullName"
+                    value={formData.fullName}
+                    onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                     required
                   />
                 </div>
@@ -287,18 +306,10 @@ export default function Teachers() {
                 />
               </div>
               <div>
-                <Label htmlFor="phone">Phone</Label>
-                <Input
-                  id="phone"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                />
-              </div>
-              <div>
-                <Label htmlFor="subject">Subject</Label>
+                <Label htmlFor="subjectId">Subject</Label>
                 <Select
-                  value={formData.subject_id}
-                  onValueChange={(value) => setFormData({ ...formData, subject_id: value })}
+                  value={formData.subjectId}
+                  onValueChange={(value) => setFormData({ ...formData, subjectId: value })}
                 >
                   <SelectTrigger>
                     <SelectValue placeholder="Select a subject" />
@@ -328,13 +339,44 @@ export default function Teachers() {
                 </Select>
               </div>
               <div className="flex justify-end space-x-2">
-                <Button type="button" variant="outline" onClick={() => setIsDialogOpen(false)}>
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={() => {
+                    setIsDialogOpen(false);
+                    setSelectedTeacher(null);
+                    setFormData({
+                      email: '',
+                      fullName: '',
+                      subjectId: '',
+                      status: 'active'
+                    });
+                  }}
+                  disabled={isSubmitting}
+                >
                   Cancel
                 </Button>
-                <Button type="submit">
-                  {selectedTeacher ? 'Update' : 'Create'}
+                <Button type="submit" disabled={isSubmitting}>
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      {selectedTeacher ? 'Updating...' : 'Creating...'}
+                    </>
+                  ) : (
+                    selectedTeacher ? 'Update Teacher' : 'Create Teacher'
+                  )}
                 </Button>
               </div>
+              {error && (
+                <div className="text-sm text-red-500 mt-2">
+                  {error}
+                </div>
+              )}
+              {success && (
+                <div className="text-sm text-green-500 mt-2">
+                  {success}
+                </div>
+              )}
             </form>
           </DialogContent>
         </Dialog>

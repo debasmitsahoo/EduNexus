@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../../lib/supabase';
-import { Search, Edit, Trash2, Plus } from 'lucide-react';
+import { Search, Edit, Trash2, Plus, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
@@ -55,6 +55,8 @@ export default function Students() {
     admission_date: '',
     status: 'active' as const,
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [success, setSuccess] = useState('');
   const { toast } = useToast();
 
   useEffect(() => {
@@ -142,39 +144,53 @@ export default function Students() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError('');
+    setSuccess('');
+    setIsSubmitting(true);
+
     try {
-      // First create the auth user
+      // Validate email format
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!emailRegex.test(formData.email)) {
+        throw new Error('Please enter a valid email address');
+      }
+
+      // Validate other required fields
+      if (!formData.full_name.trim()) {
+        throw new Error('Full name is required');
+      }
+      if (!formData.class_id) {
+        throw new Error('Class is required');
+      }
+
+      // Create auth user
       const { data: authData, error: authError } = await supabase.auth.signUp({
         email: formData.email,
-        password: 'Student@123', // Default password
+        password: 'Welcome@123', // Default password
         options: {
           data: {
+            full_name: formData.full_name,
             role: 'student'
           }
         }
       });
 
       if (authError) {
-        if (authError.message.includes('30 seconds')) {
-          toast({
-            title: "Error",
-            description: "Please wait 30 seconds before creating another student",
-            variant: "destructive",
-          });
-          return;
+        if (authError.message.includes('already registered')) {
+          throw new Error('A user with this email already exists');
         }
         throw authError;
       }
 
-      if (!authData.user?.id) {
+      if (!authData.user) {
         throw new Error('Failed to create user account');
       }
 
-      // Wait a moment for the auth user to be fully created
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Reduced wait time to 500ms
+      await new Promise(resolve => setTimeout(resolve, 500));
 
-      // Create student using the new function
-      const { data: studentId, error: studentError } = await supabase
+      // Create student profile
+      const { data: studentData, error: studentError } = await supabase
         .rpc('create_student', {
           p_email: formData.email,
           p_full_name: formData.full_name,
@@ -184,44 +200,31 @@ export default function Students() {
         });
 
       if (studentError) {
-        console.error('Student creation error:', studentError);
-        // If student creation fails, try to delete the auth user
-        await supabase.auth.admin.deleteUser(authData.user.id);
+        // If student creation fails, try to clean up the auth user
+        try {
+          await supabase.auth.admin.deleteUser(authData.user.id);
+        } catch (cleanupError) {
+          console.error('Error cleaning up auth user:', cleanupError);
+        }
         throw studentError;
       }
 
-      toast({
-        title: "Success",
-        description: "Student added successfully",
+      setSuccess('Student created successfully');
+      setFormData({
+        full_name: '',
+        email: '',
+        phone: '',
+        class_id: '',
+        admission_date: '',
+        status: 'active'
       });
-
-      setIsDialogOpen(false);
       fetchStudents();
-      resetForm();
-    } catch (error: any) {
-      console.error('Error saving student:', error);
-      let errorMessage = "Failed to save student";
-      
-      // Handle specific error cases
-      if (error.message.includes('duplicate key')) {
-        errorMessage = "A student with this email already exists";
-      } else if (error.message.includes('foreign key')) {
-        errorMessage = "Invalid class selected";
-      } else if (error.message.includes('not-null')) {
-        errorMessage = "Please fill in all required fields";
-      } else if (error.message.includes('auth')) {
-        errorMessage = "Failed to create user account";
-      } else if (error.message.includes('30 seconds')) {
-        errorMessage = "Please wait 30 seconds before creating another student";
-      } else if (error.message.includes('Auth user not found')) {
-        errorMessage = "Failed to create student profile. Please try again.";
-      }
-
-      toast({
-        title: "Error",
-        description: errorMessage,
-        variant: "destructive",
-      });
+      setIsDialogOpen(false);
+    } catch (err: any) {
+      console.error('Error saving student:', err);
+      setError(err.message || 'Failed to save student');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -359,13 +362,46 @@ export default function Students() {
                 </Select>
               </div>
               <div className="flex justify-end space-x-2">
-                <Button type="button" variant="outline" onClick={() => setIsDialogOpen(false)}>
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={() => {
+                    setIsDialogOpen(false);
+                    setSelectedStudent(null);
+                    setFormData({
+                      email: '',
+                      full_name: '',
+                      phone: '',
+                      class_id: '',
+                      admission_date: '',
+                      status: 'active'
+                    });
+                  }}
+                  disabled={isSubmitting}
+                >
                   Cancel
                 </Button>
-                <Button type="submit">
-                  {selectedStudent ? 'Update' : 'Create'}
+                <Button type="submit" disabled={isSubmitting}>
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      {selectedStudent ? 'Updating...' : 'Creating...'}
+                    </>
+                  ) : (
+                    selectedStudent ? 'Update Student' : 'Create Student'
+                  )}
                 </Button>
               </div>
+              {error && (
+                <div className="text-sm text-red-500 mt-2">
+                  {error}
+                </div>
+              )}
+              {success && (
+                <div className="text-sm text-green-500 mt-2">
+                  {success}
+                </div>
+              )}
             </form>
           </DialogContent>
         </Dialog>
